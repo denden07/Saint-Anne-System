@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Admin Dashboard</title>
+    <title>@yield('title')</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
@@ -156,11 +156,7 @@
 <div class="all-content-wrapper">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="logo-pro">
-                    <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
-                </div>
-            </div>
+
         </div>
     </div>
     <div class="header-advance-area">
@@ -837,13 +833,13 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li><a data-toggle="collapse" data-target="#demodepart" href="#">Departments <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
+                                    <li><a data-toggle="collapse" data-target="#demodepart" href="#">Sections <span class="admin-project-icon edu-icon edu-down-arrow"></span></a>
                                         <ul id="demodepart" class="collapse dropdown-header-top">
-                                            <li><a href="departments.html">Departments List</a>
+                                            <li><a href="departments.html">Sections List</a>
                                             </li>
-                                            <li><a href="add-department.html">Add Departments</a>
+                                            <li><a href="add-department.html">Add Section</a>
                                             </li>
-                                            <li><a href="edit-department.html">Edit Departments</a>
+                                            <li><a href="edit-department.html">Edit Section</a>
                                             </li>
                                         </ul>
                                     </li>
@@ -870,21 +866,32 @@
                                         </form>
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <ul class="breadcome-menu">
-                                        <li><a href="#"></a> <span class="bread-slash">/</span>
-                                        </li>
-                                        <li><span class="bread-blod"></span>
-                                        </li>
-                                    </ul>
-                                </div>
+
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+
+        <div class="breadcome-area">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="breadcome-list breadcome-list-lower">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                    @yield('contents')
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
     <div class="footer-copyright-area">
         <div class="container-fluid">
