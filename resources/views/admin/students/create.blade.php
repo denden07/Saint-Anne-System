@@ -110,7 +110,7 @@
                                                         <div class="form-group">
                                                             <input type="lrnno" class="form-control" placeholder="LRN (Learner Reference No.)">
                                                         </div>
-                                                        
+
                                                         <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
                                                     </div>
                                                 </div>

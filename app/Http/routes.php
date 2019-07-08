@@ -20,3 +20,7 @@ Route::get('test', function (){
 
         return view('layouts.admin');
 });
+
+Route::get('user',function (){
+   return view('admin.users.create') ;
+});
