@@ -112,7 +112,7 @@
                         <a class="has-arrow" href="all-students.html" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/student.png')}}" alt=""></span> <span class="mini-click-non">Students</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
                             <li><a title="All Students" href="all-students.html"><span class="mini-sub-pro">All Students</span></a></li>
-                            <li><a title="Add Students" href="add-student.html"><span class="mini-sub-pro">Add Student</span></a></li>
+                            <li><a title="Add Students" href="add-student.html"><span class="mini-sub-pro">Enroll Student</span></a></li>
                             <li><a title="Edit Students" href="edit-student.html"><span class="mini-sub-pro">Edit Student</span></a></li>
                             <li><a title="Students Profile" href="student-profile.html"><span class="mini-sub-pro">Student Profile</span></a></li>
                         </ul>
@@ -801,7 +801,7 @@
                                         <ul id="demopro" class="collapse dropdown-header-top">
                                             <li><a href="all-students.html">All Students</a>
                                             </li>
-                                            <li><a href="add-student.html">Add Student</a>
+                                            <li><a href="#">Enroll Student</a>
                                             </li>
                                             <li><a href="edit-student.html">Edit Student</a>
                                             </li>

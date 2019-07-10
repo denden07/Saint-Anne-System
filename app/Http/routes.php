@@ -22,5 +22,5 @@ Route::get('test', function (){
 });
 
 Route::get('user',function (){
-   return view('admin.users.create') ;
+   return view('admin.students.create') ;
 });

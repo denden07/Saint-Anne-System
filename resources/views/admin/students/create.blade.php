@@ -1,7 +1,7 @@
 @extends("layouts.admin")
 
 @section('title')
-    Create User
+    Enroll Student
 @endsection
 
 
@@ -13,10 +13,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-payment-inner-st">
                         <ul id="myTabedu1" class="tab-review-design">
-                            <li class="active"><a href="#description">Basic Information</a></li>
-                            <li><a href="#reviews"> Account Information</a></li>
-                            <li><a href="#INFORMATION">Learners Information</a></li>
-
+                            <li class="active"><a href="#description">Enrollment Form</a></li>
                         </ul>
                         <div id="myTabContent" class="tab-content custom-product-edit">
                             <div class="product-tab-list tab-pane fade active in" id="description">
@@ -25,8 +22,46 @@
                                         <div class="review-content-section">
                                             <div id="dropzone1" class="pro-ad">
                                                 <form action="/upload" class="dropzone dropzone-custom needsclick add-professors" id="demo1-upload">
+
+                                                    <div class="container-row">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="enrollment-heading">
+                                                            <p>Learners Information</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <input type="nsonumber" class="form-control" placeholder="PSA/NSO Birth Certificate No.">
+                                                            </div>
+                                                        </div>
+
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <input type="lrnno" class="form-control" placeholder="LRN (Learner Reference No.)">
+                                                            </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="container-row">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="enrollment-heading">
+                                                        <p>Basic Information</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
+
                                                             <div class="form-group">
                                                                 <input name="firstname" type="text" class="form-control" placeholder="First Name">
                                                             </div>
@@ -39,35 +74,45 @@
                                                                 <input name="lastname" type="text" class="form-control" placeholder="Last Name">
                                                             </div>
 
+
+
                                                             <div class="form-group">
                                                                 <input name="extensionname" type="text" class="form-control" placeholder="Name Extension: e.g Jr., III (if applicable)">
                                                             </div>
 
                                                             <div class="form-group">
-                                                                <input name="address" type="text" class="form-control" placeholder="Address">
+                                                                <input name="age" type="text" class="form-control" placeholder="Age">
                                                             </div>
+
+
                                                             <div class="form-group">
                                                                 <input name="mobileno" type="number" class="form-control" placeholder="Mobile no.">
                                                             </div>
                                                             <div class="form-group">
                                                                 <input name="finish" id="finish" type="date" class="form-control" placeholder="Date of Birth">
                                                             </div>
-                                                            <div class="form-group">
-                                                                <input name="postcode" id="postcode" type="text" class="form-control" placeholder="Zip Code">
-                                                            </div>
+
+
+
                                                             <div class="form-group alert-up-pd">
-                                                                <div class="dz-message needsclick download-custom">
-                                                                    <i class="fa fa-download edudropnone" aria-hidden="true"></i>
-                                                                    <h2 class="edudropnone">Drop image here or click to upload.</h2>
-                                                                    <p class="edudropnone"><span class="note needsclick">(This is just a demo dropzone. Selected image is <strong>not</strong> actually uploaded.)</span>
-                                                                    </p>
-                                                                    <input name="imageico" class="hd-pro-img" type="text" />
+                                                                <div class="input-container">
+                                                                    <input type="file" class="browse-btn" id="real-input">
+                                                                    <button class="browse-btn">
+                                                                        Browse Files
+                                                                    </button>
+                                                                    <span class="file-info">Upload Student's Picture</span>
                                                                 </div>
+
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group">
-                                                                <input name="course" type="text" class="form-control" placeholder="Course">
+                                                                <select name="gender" class="form-control">
+                                                                    <option value="none" selected="" disabled="">Select Course</option>
+                                                                    <option value="0">ABM</option>
+                                                                    <option value="1">HUMS</option>
+                                                                    <option value="2">GAS</option>
+                                                                </select>
                                                             </div>
 
                                                             <div class="form-group">
@@ -77,13 +122,98 @@
                                                                     <option value="1">Female</option>
                                                                 </select>
                                                             </div>
+                                                            <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                                <p>Belongs to any indigenous People?</p>
+                                                            </div>
+                                                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                                <label class="form-check-label" for="exampleRadios2">
+                                                                   Yes
+                                                                </label>
 
+                                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                                <label class="form-check-label" for="exampleRadios2">
+                                                                        No
+                                                                </label>
+                                                                <div class="form-group">
+                                                                    <input name="address" type="text" class="form-control" placeholder="If Yes, specify">
+                                                                </div>
 
-
-
-
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input name="tounge" id="postcode" type="text" class="form-control" placeholder="Mother Tounge">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input name="religion" id="postcode" type="text" class="form-control" placeholder="Religion">
+                                                            </div>
+                                                        </div>
                                                         </div>
                                                     </div>
+
+                                                    <div class="container-row">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="enrollment-heading">
+                                                            <p>Permanent Address</p>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <input name="housenumber" type="text" class="form-control" placeholder="House Number and Sitio ex: '123 Dicaoa'">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input name="barangay" type="text" class="form-control" placeholder="Barangay">
+                                                            </div>
+                                                        </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <input name="municipality" type="text" class="form-control" placeholder="City/Municipality/Province/Country ex. 'Piddig Ilocos-Norte Philippines'">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input name="postcode" id="postcode" type="text" class="form-control" placeholder="Zip Code">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    </div>
+                                                    <div class="container-row">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="enrollment-heading">
+                                                            <p>Parent's/Guardian Information</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <input name="father" type="text" class="form-control" placeholder="Father's Name: ('Last Name, First Name, Middle Name')">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input name="guardian" type="text" class="form-control" placeholder="Guardian's Name: ('Last Name, First Name, Middle Name')">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                                            <div class="form-group">
+                                                                <input name="mother" type="text" class="form-control" placeholder="Mother's Name: ('Last Name, First Name, Middle Name')">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input name="parentnumber" id="postcode" type="number" class="form-control" placeholder="Telephone/Cellphone Number">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+
+
+
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="payment-adress">
@@ -97,58 +227,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="product-tab-list tab-pane fade" id="INFORMATION">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="review-content-section">
-                                            <div class="row">
-                                                <div class="col-lg-12">
-                                                    <div class="devit-card-custom">
-                                                        <div class="form-group">
-                                                            <input type="nsonumber" class="form-control" placeholder="PSA/NSO Birth Certificate No.">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="lrnno" class="form-control" placeholder="LRN (Learner Reference No.)">
-                                                        </div>
 
-                                                        <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <div class="product-tab-list tab-pane fade" id="reviews">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div class="review-content-section">
-                                            <div class="row">
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <form id="acount-infor" action="#" class="acount-infor">
-                                                        <div class="devit-card-custom">
-                                                            <div class="form-group">
-                                                                <input type="text" class="form-control" name="email" placeholder="Email">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input name="phoneno" type="number" class="form-control" placeholder="Phone">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input name="password" type="password" class="form-control" placeholder="Password">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input name="confarmpassword" type="password" class="form-control" placeholder="Confirm Password">
-                                                            </div>
-                                                            <a href="#" class="btn btn-primary waves-effect waves-light">Submit</a>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
                         </div>
                     </div>
