@@ -4736,24 +4736,8 @@ div#sparklinehome canvas {
     border: 1px solid #DFDFDF;
     border-radius: 5px;
 }
-input[type='file'] {
-    display: none;
-}
-.file-info {
-    font-size: 0.9em;
-}
-.browse-btn {
-    background: #006DF0;
-    color: #fff;
-    min-height: 35px;
-    padding: 10px;
-    border: none;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-.browse-btn:hover {
-    background: #00acee;
-}
+
+
 @media (max-width: 300px) {
     button {
         width: 100%;

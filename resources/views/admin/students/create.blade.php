@@ -41,15 +41,20 @@
 
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
                                                             <div class="form-group">
-                                                                <input type="nsonumber" class="form-control" placeholder="PSA/NSO Birth Certificate No.">
+                                                                {!! Form::label('studentNsoNo','NSO No:') !!}
+                                                                {!! Form::text('studentNsoNo',null,['class'=>'form-control']) !!}
                                                             </div>
+
                                                         </div>
 
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                            <div class="form-group">
-                                                                <input type="lrnno" class="form-control" placeholder="LRN (Learner Reference No.)">
-                                                            </div>
+                                                                <div class="form-group">
+                                                                    {!! Form::label('studentLrnNo','LRN No:(if any)') !!}
+                                                                    {!! Form::text('studentLrnNo',null,['class'=>'form-control']) !!}
+                                                                </div>
+
                                                             </div>
 
                                                         </div>
@@ -66,62 +71,63 @@
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
-
                                                             <div class="form-group">
-                                                                <input name="firstname" type="text" class="form-control" placeholder="First Name">
-                                                            </div>
-
-                                                            <div class="form-group">
-                                                                <input name="middlename" type="text" class="form-control" placeholder="Middle Name">
+                                                                {!! Form::label('studentFirstName','First Name:') !!}
+                                                                {!! Form::text('studentFirstName',null,['class'=>'form-control']) !!}
                                                             </div>
 
                                                             <div class="form-group">
-                                                                <input name="lastname" type="text" class="form-control" placeholder="Last Name">
-                                                            </div>
-
-
-
-                                                            <div class="form-group">
-                                                                <input name="extensionname" type="text" class="form-control" placeholder="Name Extension: e.g Jr., III (if applicable)">
+                                                                {!! Form::label('studentMiddleName','Middle Name:') !!}
+                                                                {!! Form::text('studentMiddleName',null,['class'=>'form-control']) !!}
                                                             </div>
 
                                                             <div class="form-group">
-                                                                <input name="age" type="text" class="form-control" placeholder="Age">
+                                                                {!! Form::label('studentLastName','Last Name:') !!}
+                                                                {!! Form::text('studentLastName',null,['class'=>'form-control']) !!}
                                                             </div>
-
 
                                                             <div class="form-group">
-                                                                <input name="mobileno" type="number" class="form-control" placeholder="Mobile no.">
+                                                                {!! Form::label('studentExtensionName','Extension Name:e.g Jr., III (if applicable)') !!}
+                                                                {!! Form::text('studentExtensionName',null,['class'=>'form-control']) !!}
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <input name="finish" id="finish" type="date" class="form-control" placeholder="Date of Birth">
+                                                                {!! Form::label('studentAge','Age: ') !!}
+                                                                {!! Form::text('studentAge',null,['class'=>'form-control']) !!}
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                {!! Form::label('studentContactNo','Contact No: ') !!}
+                                                                {!! Form::text('studentContactNo',null,['class'=>'form-control']) !!}
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                {!! Form::label('studentDob','Date of Birth:') !!}
+                                                                <input name="studentDob"  type="date" class="form-control" placeholder="Date of Birth">
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                {!! Form::label('photo_id','Photo:') !!}
+                                                                {!! Form::file('photo_id',null,['class'=>'form-control alert-up-pd']) !!}
                                                             </div>
 
 
-
-                                                            <div class="form-group alert-up-pd">
-                                                                <div class="input-container">
-                                                                    <input type="file" class="browse-btn" id="real-input">
-                                                                    <button class="browse-btn">
-                                                                        Browse Files
-                                                                    </button>
-                                                                    <span class="file-info">Upload Student's Picture</span>
-                                                                </div>
-
-                                                            </div>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group">
-                                                                <select name="gender" class="form-control">
-                                                                    <option value="none" selected="" disabled="">Select Course</option>
+                                                                {!! Form::label('course_id','Course:') !!}
+                                                                <select name="course_id" class="form-control">
+                                                                    <option value="none" selected="" disabled="">Select Course/Year</option>
                                                                     <option value="0">ABM</option>
                                                                     <option value="1">HUMS</option>
                                                                     <option value="2">GAS</option>
                                                                 </select>
                                                             </div>
 
+
                                                             <div class="form-group">
-                                                                <select name="gender" class="form-control">
+                                                                {!! Form::label('gender_id','Gender:') !!}
+                                                                <select name="gender_id" class="form-control">
                                                                     <option value="none" selected="" disabled="">Select Gender</option>
                                                                     <option value="0">Male</option>
                                                                     <option value="1">Female</option>
@@ -142,19 +148,25 @@
                                                                 <label class="form-check-label" for="exampleRadios2">
                                                                         No
                                                                 </label>
+
                                                                 <div class="form-group">
-                                                                    <input name="address" type="text" class="form-control" placeholder="If Yes, specify">
+                                                                    {!! Form::text('studentIndigenous',null,['class'=>'form-control','placeholder'=>'if yes, specify']) !!}
                                                                 </div>
 
                                                             </div>
                                                             </div>
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <input name="tounge" id="postcode" type="text" class="form-control" placeholder="Mother Tounge">
+                                                                {!! Form::label('studentLanguage','Mother Tounge: ') !!}
+                                                                {!! Form::text('studentLanguage',null,['class'=>'form-control']) !!}
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <input name="religion" id="postcode" type="text" class="form-control" placeholder="Religion">
+                                                                {!! Form::label('studentReligion','Religion: ') !!}
+                                                                {!! Form::text('studentReligion',null,['class'=>'form-control']) !!}
                                                             </div>
+
                                                         </div>
                                                         </div>
                                                     </div>
@@ -163,27 +175,36 @@
                                                     <div class="row">
                                                         <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="enrollment-heading">
-                                                            <p>Permanent Address</p>
+                                                            <p>Current Address</p>
                                                             </div>
                                                         </div>
 
                                                     </div>
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
                                                             <div class="form-group">
-                                                                <input name="housenumber" type="text" class="form-control" placeholder="House Number and Sitio ex: '123 Dicaoa'">
+                                                                {!! Form::label('studentHouseNo','House No: ') !!}
+                                                                {!! Form::text('studentHouseNo',null,['class'=>'form-control']) !!}
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <input name="barangay" type="text" class="form-control" placeholder="Barangay">
+                                                                {!! Form::label('studentBarangay','Barangay: ') !!}
+                                                                {!! Form::text('studentBarangay',null,['class'=>'form-control']) !!}
                                                             </div>
+
                                                         </div>
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                            <div class="form-group">
-                                                                <input name="municipality" type="text" class="form-control" placeholder="City/Municipality/Province/Country ex. 'Piddig Ilocos-Norte Philippines'">
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <input name="postcode" id="postcode" type="text" class="form-control" placeholder="Zip Code">
-                                                            </div>
+                                                                <div class="form-group">
+                                                                    {!! Form::label('studentMunicipality',"City/Municipality/Province/Country: ex. 'Piddig Ilocos-Norte Philippines' ") !!}
+                                                                    {!! Form::text('studentMunicipality',null,['class'=>'form-control']) !!}
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    {!! Form::label('studentZipcode','Zip Code:') !!}
+                                                                    {!! Form::text('studentZipcode',null,['class'=>'form-control']) !!}
+                                                                </div>
+
                                                         </div>
 
                                                     </div>
@@ -199,19 +220,29 @@
 
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
                                                             <div class="form-group">
-                                                                <input name="father" type="text" class="form-control" placeholder="Father's Name: ('Last Name, First Name, Middle Name')">
+                                                                {!! Form::label('studentFatherName',"Father's Name:") !!}
+                                                                {!! Form::text('studentFatherName',null,['class'=>'form-control']) !!}
                                                             </div>
+
+
                                                             <div class="form-group">
-                                                                <input name="guardian" type="text" class="form-control" placeholder="Guardian's Name: ('Last Name, First Name, Middle Name')">
+                                                                {!! Form::label('studentGuardianName',"Guardian's Name:") !!}
+                                                                {!! Form::text('studentGuardianName',null,['class'=>'form-control']) !!}
                                                             </div>
+
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+
                                                             <div class="form-group">
-                                                                <input name="mother" type="text" class="form-control" placeholder="Mother's Name: ('Last Name, First Name, Middle Name')">
+                                                                {!! Form::label('studentMotherName',"Mother's Name:") !!}
+                                                                {!! Form::text('studentMotherName',null,['class'=>'form-control']) !!}
                                                             </div>
+
                                                             <div class="form-group">
-                                                                <input name="parentnumber" id="postcode" type="number" class="form-control" placeholder="Telephone/Cellphone Number">
+                                                                {!! Form::label('studentGuardianNo',"Guardian's No:") !!}
+                                                                {!! Form::text('studentGuardianNo',null,['class'=>'form-control']) !!}
                                                             </div>
                                                         </div>
                                                     </div>
@@ -222,7 +253,9 @@
                                                     <div class="row">
                                                         <div class="col-lg-12">
                                                             <div class="payment-adress">
-                                                                <button type="submit" class="btn btn-primary waves-effect waves-light">Submit</button>
+                                                                <div class="form-group">
+                                                                    {!! Form::submit('Enroll Student',['class'=>'btn btn-primary waves-effect waves-light']) !!}
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
