@@ -55,6 +55,18 @@
 		============================================ -->
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/calendar/fullcalendar.min.css')}}">
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/calendar/fullcalendar.print.min.css')}}">
+
+    <!-- x-editor CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/css/editor/select2.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/datetimepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/bootstrap-editable.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/editor/x-editor-style.css')}}">
+    <!-- normalize CSS
+		============================================ -->
+    <link rel="stylesheet" href="{{asset('assets/css/data-table/bootstrap-table.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/data-table/bootstrap-editable.css')}}">
+
     <!-- style CSS
 		============================================ -->
     <link type="text/css" rel="stylesheet" href="{{ asset('style.css')}}">
@@ -85,61 +97,61 @@
         <div class="left-custom-menu-adp-wrap comment-scrollbar">
             <nav class="sidebar-nav left-sidebar-menu-pro">
                 <ul class="metismenu" id="menu1">
-                    <li class="active">
+                    <li @yield('is_active_user')>
                         <a class="has-arrow" href="index.html">
                             <img width="20px" src="{{URL::to('assets/img/side-icons/user.png')}}" alt="">
                             <span class="mini-click-non">Users</span>
                         </a>
                         <ul class="submenu-angle" aria-expanded="true">
-                            <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">All Users</span></a></li>
-                            <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Add Users</span></a></li>
-                            <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Edit Users</span></a></li>
+                            <li><a title="All User" href="{{route('admin.users.index')}}"><span class="mini-sub-pro">All Users</span></a></li>
+                            <li><a title="Add User" href="{{route('admin.users.create')}}"><span class="mini-sub-pro">Add Users</span></a></li>
+                            <li><a title="Edit User" href="index-2.html"><span class="mini-sub-pro">Edit Users</span></a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a title="Landing Page" href="events.html" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/event.png')}}" alt=""></span> <span class="mini-click-non">Event</span></a>
+
+                    <li @yield('is_active_events')>
+                        <a title="Landing Page" href="{{route('admin.events.index')}}" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/event.png')}}" alt=""></span> <span class="mini-click-non">Event</span></a>
                     </li>
-                    <li>
-                        <a class="has-arrow" href="all-professors.html" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/teacher.png')}}" alt=""> <span class="mini-click-non">Professors</span></a>
+                    <li @yield('is_active_teacher')>
+                        <a class="has-arrow" href="{{route('admin.teachers.index')}}" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/teacher.png')}}" alt=""> <span class="mini-click-non">Professors</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Professors" href="all-professors.html"><span class="mini-sub-pro">All Professors</span></a></li>
-                            <li><a title="Add Professor" href="add-professor.html"><span class="mini-sub-pro">Add Professor</span></a></li>
+                            <li><a title="All Professors" href="{{route('admin.teachers.index')}}"><span class="mini-sub-pro">All Professors</span></a></li>
+                            <li><a title="Add Professor" href="{{route('admin.teachers.create')}}"><span class="mini-sub-pro">Add Professor</span></a></li>
                             <li><a title="Edit Professor" href="edit-professor.html"><span class="mini-sub-pro">Edit Professor</span></a></li>
                             <li><a title="Professor Profile" href="professor-profile.html"><span class="mini-sub-pro">Professor Profile</span></a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="has-arrow" href="all-students.html" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/student.png')}}" alt=""></span> <span class="mini-click-non">Students</span></a>
+                    <li @yield('is_active_students')>
+                        <a class="has-arrow" href="{{route('admin.students.index')}}" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/student.png')}}" alt=""> <span class="mini-click-non">Students</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Students" href="all-students.html"><span class="mini-sub-pro">All Students</span></a></li>
-                            <li><a title="Add Students" href="add-student.html"><span class="mini-sub-pro">Enroll Student</span></a></li>
-                            <li><a title="Edit Students" href="edit-student.html"><span class="mini-sub-pro">Edit Student</span></a></li>
-                            <li><a title="Students Profile" href="student-profile.html"><span class="mini-sub-pro">Student Profile</span></a></li>
+                            <li><a title="All Students" href="{{route('admin.students.index')}}"><span class="mini-sub-pro">All Students</span></a></li>
+                            <li><a title="Add Students" href="{{route('admin.students.create')}}"><span class="mini-sub-pro">Enroll Students</span></a></li>
+                            <li><a title="Students Profile" href="professor-profile.html"><span class="mini-sub-pro">Students Profile</span></a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Courses</span></a>
+                    <li @yield('is_active_course')>
+                        <a class="has-arrow" href="{{route('admin.courses.index')}}" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Courses</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Courses" href="all-courses.html"><span class="mini-sub-pro">All Courses</span></a></li>
-                            <li><a title="Add Courses" href="add-course.html"><span class="mini-sub-pro">Add Course</span></a></li>
+                            <li><a title="All Courses" href="{{route('admin.courses.index')}}"><span class="mini-sub-pro">All Courses</span></a></li>
+                            <li><a title="Add Courses" href="{{route('admin.courses.create')}}"><span class="mini-sub-pro">Add Course</span></a></li>
                             <li><a title="Edit Courses" href="edit-course.html"><span class="mini-sub-pro">Edit Course</span></a></li>
                             <li><a title="Courses Profile" href="course-info.html"><span class="mini-sub-pro">Courses Info</span></a></li>
                             <li><a title="Product Payment" href="course-payment.html"><span class="mini-sub-pro">Courses Payment</span></a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Library</span></a>
+                    <li @yield('is_active_library')>
+                        <a class="has-arrow" href="{{route('admin.library.index')}}" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Library</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Library" href="library-assets.html"><span class="mini-sub-pro">Library Assets</span></a></li>
-                            <li><a title="Add Library" href="add-library-assets.html"><span class="mini-sub-pro">Add Library Asset</span></a></li>
+                            <li><a title="All Library" href="{{route('admin.library.index')}}"><span class="mini-sub-pro">Library Assets</span></a></li>
+                            <li><a title="Add Library" href="{{route('admin.library.create')}}"><span class="mini-sub-pro">Add Library Asset</span></a></li>
                             <li><a title="Edit Library" href="edit-library-assets.html"><span class="mini-sub-pro">Edit Library Asset</span></a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="has-arrow" href="all-courses.html" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Section</span></a>
+                    <li @yield('is_active_section')>
+                        <a class="has-arrow" href="{{route('admin.sections.index')}}" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Section</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Departments List" href="departments.html"><span class="mini-sub-pro">Section List</span></a></li>
-                            <li><a title="Add Departments" href="add-department.html"><span class="mini-sub-pro">Add Section</span></a></li>
+                            <li><a title="Departments List" href="{{route('admin.sections.index')}}"><span class="mini-sub-pro">Section List</span></a></li>
+                            <li><a title="Add Departments" href="{{route('admin.sections.create')}}"><span class="mini-sub-pro">Add Section</span></a></li>
                             <li><a title="Edit Departments" href="edit-department.html"><span class="mini-sub-pro">Edit Section</span></a></li>
                         </ul>
                     </li>
@@ -852,31 +864,10 @@
             </div>
         </div>
         <!-- Mobile Menu end -->
-        <div class="breadcome-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div class="breadcome-list">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                    <div class="breadcome-heading">
-                                        <form role="search" class="sr-input-func">
-                                            <input type="text" placeholder="Search..." class="search-int form-control">
-                                            <a href="#"><i class="fa fa-search"></i></a>
-                                        </form>
-                                    </div>
-                                </div>
 
 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-
-        <div class="breadcome-area">
+        <div class="breadcome-area contents-row">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -943,7 +934,36 @@
     ============================================ -->
 <script src="{{asset('assets/js/metisMenu/metisMenu.min.js')}}"></script>
 <script src="{{asset('assets/js/metisMenu/metisMenu-active.js')}}"></script>
-<!-- morrisjs JS
+        <!-- data table JS
+       ============================================ -->
+        <script src="{{asset('assets/js/data-table/bootstrap-table.js')}}"></script>
+        <script src="{{asset('assets/js/data-table/tableExport.js')}}"></script>
+        <script src="{{asset('assets/js/data-table/data-table-active.js')}}"></script>
+        <script src="{{asset('assets/js/data-table/bootstrap-table-editable.js')}}"></script>
+        <script src="{{asset('assets/js/data-table/bootstrap-editable.js')}}"></script>
+        <script src="{{asset('assets/js/data-table/bootstrap-table-resizable.js')}}"></script>
+        <script src="{{asset('assets/js/data-table/colResizable-1.5.source.js')}}"></script>
+        <script src="{{asset('assets/js/data-table/bootstrap-table-export.js')}}"></script>
+
+        <!--  editable JS
+                ============================================ -->
+        <script src="{{asset('assets/js/editable/jquery.mockjax.js')}}"></script>
+        <script src="{{asset('assets/js/editable/mock-active.js')}}"></script>
+        <script src="{{asset('assets/js/editable/select2.js')}}"></script>
+        <script src="{{asset('assets/js/editable/moment.min.js')}}"></script>
+        <script src="{{asset('assets/js/editable/bootstrap-datetimepicker.js')}}"></script>
+        <script src="{{asset('assets/js/editable/bootstrap-editable.js')}}"></script>
+        <script src="{{asset('assets/js/editable/xediable-active.js')}}"></script>
+
+
+        <!-- Chart JS
+       ============================================ -->
+        <script src="{{asset('assets/js/chart/jquery.peity.min.js')}}"></script>
+        <script src="{{asset('assets/js/peity/peity-active.js')}}"></script>
+        <!-- tab JS
+            ============================================ -->
+        <script src="{{asset('assets/js/tab.js')}}"></script>
+        <!-- morrisjs JS
     ============================================ -->
 <script src="{{asset('assets/js/morrisjs/raphael-min.js')}}"></script>
 <script src="{{asset('assets/js/morrisjs/morris.js')}}"></script>
@@ -964,6 +984,9 @@
 <!-- main JS
     ============================================ -->
 <script src="{{asset('assets/js/main.js')}}"></script>
+        <!-- tawk chat JS
+     ============================================ -->
+        <script src="{{asset('js/tawk-chat.jss')}}"></script>
 
 </body>
 

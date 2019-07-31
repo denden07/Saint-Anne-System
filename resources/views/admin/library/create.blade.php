@@ -1,12 +1,15 @@
 @extends("layouts.admin")
 
 @section('title')
-    View Users
+    Add Material
 @endsection
 
-@section('is_active_user')
+
+@section('is_active_library')
     class="active"
 @endsection
 
 
+@section('contents')
 
+@endsection

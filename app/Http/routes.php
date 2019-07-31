@@ -24,3 +24,11 @@ Route::get('test', function (){
 Route::get('user',function (){
    return view('admin.students.create') ;
 });
+
+Route::resource('admin/students','AdminStudentsController');
+Route::resource('admin/users','AdminUsersController');
+Route::resource('admin/teachers','AdminTeachersController');
+Route::resource('admin/sections','AdminSectionsController');
+Route::resource('admin/library','AdminLibraryController');
+Route::resource('admin/courses','AdminCoursesController');
+Route::resource('admin/events','AdminEventsController');

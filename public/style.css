@@ -4767,6 +4767,8 @@ input[type='file'] {
     }
 }
 
+/*Custom Styles*/
+
 .enrollment-heading {
 	text-align: center;
 
@@ -4783,3 +4785,10 @@ input[type='file'] {
 
 
 
+.contents-row{
+	margin-top: 10%;
+}
+
+.courses-area{
+	margin-top: 2%;
+}
