@@ -1,4 +1,4 @@
-@extends("layouts.admin")
+@extends("layouts.teacher")
 
 @section('title')
     DASHBOARD
@@ -10,3 +10,4 @@
 @section('header')
     DASHBOARD
 @endsection
+

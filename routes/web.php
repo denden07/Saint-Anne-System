@@ -16,15 +16,19 @@ Route::get('/', function () {
 });
 
 
-Route::get('test', function (){
+Route::get('admin', function (){
 
-    return view('layouts.admin');
+    return view('admin.index');
 });
 
-Route::get('user',function (){
-    return view('admin.students.create') ;
+Route::get('teacher', function (){
+
+    return view('teacher.index');
 });
 
+
+
+//Admin Group
 Route::resource('admin/students','AdminStudentsController',['names'=>[
 
     'index'=>'admin.students.index',
@@ -80,5 +84,16 @@ Route::resource('admin/events','AdminEventsController',['names'=>[
     'store'=>'admin.events.store',
     'edit'=>'admin.events.edit'
 
+
+]]);
+
+//Teacher Group
+
+Route::resource('teacher/students','TeacherStudentsController',['names'=>[
+
+    'index'=>'teacher.students.index',
+    'create'=>'teacher.students.create',
+    'store'=>'teacher.students.store',
+    'edit'=>'teacher.students.edit'
 
 ]]);

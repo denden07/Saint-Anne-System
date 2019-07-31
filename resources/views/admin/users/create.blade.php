@@ -61,6 +61,10 @@
                                                                 </div>
 
                                                                 <div class="form-group">
+                                                                    <input name="username" type="text" class="form-control" placeholder="Username">
+                                                                </div>
+
+                                                                <div class="form-group">
                                                                     <input name="age" type="text" class="form-control" placeholder="Age">
                                                                 </div>
 

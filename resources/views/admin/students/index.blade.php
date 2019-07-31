@@ -52,7 +52,7 @@
                            <tbody>
                            <tr>
                               <td></td>
-                              <td>1</td>
+                              <td>10000</td>
                               <td></td>
                               <td>Marc Aldrin Dela Cruz</td>
                               <td>Stem</td>
