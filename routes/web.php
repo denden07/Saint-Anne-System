@@ -12,11 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.login');
 });
 
+Route::get('/log-in',function (){
+    return view('layouts.login');
+});
+Route::get('/logout', 'Auth\LoginController@logout');
 
-Route::get('admin', function (){
+
+Route::get('/admin', function (){
 
     return view('admin.index');
 });
@@ -97,3 +102,15 @@ Route::resource('teacher/students','TeacherStudentsController',['names'=>[
     'edit'=>'teacher.students.edit'
 
 ]]);
+
+Route::resource('teacher/courses','TeacherCoursesController',['names'=>[
+
+    'index'=>'teacher.courses.index',
+    'create'=>'teacher.courses.create',
+    'store'=>'teacher.courses.store',
+    'edit'=>'teacher.courses.edit'
+
+]]);
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
