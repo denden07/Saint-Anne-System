@@ -18,7 +18,7 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="product-payment-inner-st">
                         <ul id="myTabedu1" class="tab-review-design">
-                            <li class="active"><a href="#description">Enrollment Form(New Student)</a></li>
+                            <li class="active"><a href="#description">Add New Teacher</a></li>
                         </ul>
                         <div id="myTabContent" class="tab-content custom-product-edit">
                             <div class="product-tab-list tab-pane fade active in" id="description">
@@ -26,7 +26,7 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="review-content-section">
                                             <div id="dropzone1" class="pro-ad">
-                                                <form action="/upload" class="dropzone dropzone-custom needsclick add-professors" id="demo1-upload">
+                                                {!! Form::open(['method'=>'POST','action'=>'AdminTeachersController@store','files'=>true]) !!}
 
 
 
@@ -43,7 +43,7 @@
 
                                                                 <div class="form-group">
                                                                     {!! Form::label('teacherFirstName','First Name:') !!}
-                                                                    {!! Form::text('teacherFirstName firstName',null,['class'=>'form-control']) !!}
+                                                                    {!! Form::text('teacherFirstName',null,['class'=>'form-control']) !!}
                                                                 </div>
 
                                                                 <div class="form-group">
@@ -83,13 +83,16 @@
 
                                                                 <div class="form-group">
                                                                     {!! Form::label('teacherUserName','User Name: ') !!}
-                                                                    {!! Form::email('teacherUserName',null,['class'=>'form-control']) !!}
+                                                                    {!! Form::text('teacherUserName',null,['class'=>'form-control']) !!}
                                                                 </div>
                                                                 <div class="form-group">
                                                                     {!! Form::label('password','Password: ') !!}
                                                                     {!! Form::password('password',null,['class'=>'form-control']) !!}
                                                                 </div>
 
+                                                                <div class="form-group">
+                                                                    <input type="text" name="role_id" value="3" style="display: none">
+                                                                </div>
 
 
 
@@ -106,20 +109,14 @@
 
 
                                                                 <div class="form-group">
-                                                                    {!! Form::label('dept_id','Department:') !!}
-                                                                    <select name="dept_id" class="form-control">
-                                                                        <option value="none" selected="" disabled="">Select Department</option>
-                                                                        <option value="0">Grade 7</option>
-                                                                        <option value="1">Grade 8</option>
-                                                                        <option value="2">Grade 9</option>
-                                                                        <option value="3">Grade 10</option>
-
-                                                                    </select>
+                                                                    {!! Form::label('department_id','Department:') !!}
+                                                                  {!!  Form::select('department_id',[''=>'Choose Department']+$departments,null,['class'=>'form-control'])!!}
                                                                 </div>
+
 
                                                                 <div class="form-group">
                                                                     {!! Form::label('gender_id','Gender:') !!}
-                                                                    {!! Form::select('gender_id',array(1=>'Male',0=>'Female'),null,['class'=>'form-control']) !!}
+                                                                    {!! Form::select('gender_id',[''=>'Choose Gender']+$genders,null,['class'=>'form-control']) !!}
                                                                 </div>
 
 
@@ -272,7 +269,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </form>
+                                                {!! Form::close() !!}
                                             </div>
                                         </div>
                                     </div>

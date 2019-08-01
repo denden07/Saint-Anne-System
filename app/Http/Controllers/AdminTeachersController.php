@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
+use App\Gender;
+use App\Photo;
+use App\Teacher;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -16,7 +20,9 @@ class AdminTeachersController extends Controller
     public function index()
     {
         //
-        return view('admin.teacher.index');
+        $teachers = Teacher::all();
+        return view('admin.teacher.index',compact('teachers'));
+
     }
 
     /**
@@ -27,7 +33,11 @@ class AdminTeachersController extends Controller
     public function create()
     {
         //
-        return view('admin.teacher.create');
+
+        $genders = Gender::pluck('name','id')->all();
+        $departments=Department::pluck('deptName','id')->all();
+
+        return view('admin.teacher.create',compact('genders','departments'));
     }
 
     /**
@@ -39,6 +49,36 @@ class AdminTeachersController extends Controller
     public function store(Request $request)
     {
         //
+
+        if(trim($request->password )== ''){
+            $input = $request->except('password');
+        }else{
+            $input= $request->all();
+            $input['password'] =bcrypt($request->password);
+        }
+
+        if($file = $request->file('photo_id')){
+
+            $name = time() . $file->getClientOriginalName();
+
+            $file->move('images',$name);
+
+            $photo = Photo::create(['file'=>$name]);
+
+
+            $input['photo_id']=$photo->id;
+
+        }
+
+
+        $createdUser = Teacher::create($input);
+
+        $photo->teacher_id = $createdUser->id;
+        $photo->save();
+
+
+        return redirect('/admin/teachers');
+
     }
 
     /**

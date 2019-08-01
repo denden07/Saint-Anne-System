@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Gender;
 use App\Http\Requests\AdminUsersCreateRequest;
 use App\Photo;
 use App\Role;
@@ -34,8 +35,9 @@ class AdminUsersController extends Controller
     {
 
         $roles = Role::pluck('name','id')->all();
+        $genders = Gender::pluck('name','id')->all();
 
-        return view('admin.users.create',compact('roles'));
+        return view('admin.users.create',compact('roles','genders'));
     }
 
     /**

@@ -24,7 +24,7 @@ class CreateTeachersTable extends Migration
             $table->string('teacherContactNo');
             $table->string('teacherEmail')->unique();
             $table->string('photo_id');
-            $table->integer('dept_id');
+            $table->integer('department_id');
             $table->integer('gender_id');
             $table->string('teacherLanguage');
             $table->string('teacherReligion');
@@ -41,6 +41,7 @@ class CreateTeachersTable extends Migration
             $table->string('teacherMotherName');
             $table->string('teacherGuardianNo');
             $table->string('teacherUserName')->unique();
+            $table->integer('role_id');
             $table->string('password');
             $table->timestamps();
         });

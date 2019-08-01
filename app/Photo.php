@@ -19,6 +19,10 @@ class Photo extends Model
         return $this->belongsTo('App\User','user_id');
     }
 
+    public  function teachers(){
+        return $this->belongsTo('App\Teacher','teacher_id');
+    }
+
     public function getFileAttribute($photo){
 
         return $this->uploads .$photo;

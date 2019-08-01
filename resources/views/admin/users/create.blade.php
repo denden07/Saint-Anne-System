@@ -113,7 +113,7 @@
 
                                                                 <div class="form-group">
                                                                     {!! Form::label('gender_id','Gender:') !!}
-                                                                    {!! Form::select('gender_id',array(1=>'Male',0=>'Female'),null,['class'=>'form-control']) !!}
+                                                                    {!! Form::select('gender_id',[''=>'Choose Gender']+$genders,null,['class'=>'form-control']) !!}
                                                                 </div>
 
                                                             </div>
