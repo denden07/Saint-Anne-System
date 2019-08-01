@@ -83,6 +83,18 @@
                                                                 </div>
 
                                                                 <div class="form-group">
+                                                                    {!! Form::label('email','Email Address:') !!}
+                                                                    {!! Form::text('email',null,['class'=>'form-control']) !!}
+                                                                </div>
+
+                                                                <div class="form-group">
+                                                                    {!! Form::label('password','Password:') !!}
+                                                                    {!! Form::password('password',null,['class'=>'form-control']) !!}
+                                                                </div>
+
+
+
+                                                                <div class="form-group">
                                                                     {!! Form::label('mobileNo','Contact No:') !!}
                                                                     {!! Form::text('mobileNo',null,['class'=>'form-control']) !!}
                                                                 </div>
@@ -95,7 +107,7 @@
 
                                                                 <div class="form-group">
                                                                     {!! Form::label('role_id','Role:') !!}
-                                                                    {!! Form::select('role_id',array(0=>'Admin',1=>'Registrar',2=>'Teacher',3=>'Student'),'Choose Role',['class'=>'form-control']) !!}
+                                                                    {!! Form::select('role_id',[''=>'Choose Role']+$roles,null,['class'=>'form-control']) !!}
                                                                 </div>
 
 
@@ -154,7 +166,8 @@
                                                         <div class="col-lg-12">
                                                             <div class="payment-adress">
                                                                 {!! Form::submit('Create User',['class'=>'btn btn-primary waves-effect waves-light']) !!}
-                                                            </div>
+
+                                                                @include('includes.form_error')
                                                         </div>
                                                     </div>
 
