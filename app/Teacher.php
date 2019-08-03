@@ -3,15 +3,18 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Teacher extends Model
+class Teacher extends Authenticatable
 {
     //
+
+    protected $guard = 'teacher';
 
     protected $fillable = [
         'teacherFirstName','teacherMiddleName','teacherLastName','teacherExtensionName','teacherAge','teacherDob','teacherContactNo','teacherEmail','photo_id','department_id','gender_id','teacherLanguage',
         'teacherReligion','teacherCourse','teacherSchool','teacherAchievement','teacherLastSchool','teacherHouseNo','teacherBarangay','teacherMunicipality',
-        'teacherZipcode','teacherFatherName','teacherGuardianName','teacherMotherName','teacherGuardianNo','teacherUserName','password','role_id'
+        'teacherZipcode','teacherFatherName','teacherGuardianName','teacherMotherName','teacherGuardianNo','username','password','role_id'
     ];
 
     public function teacherphotos(){

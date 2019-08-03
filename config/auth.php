@@ -45,6 +45,11 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'teacher'=>[
+            'driver' => 'session',
+            'provider' => 'teachers'
+        ],
     ],
 
     /*
@@ -68,6 +73,12 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+
+        'teachers'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Teacher::class,
         ],
 
         // 'users' => [
@@ -98,6 +109,13 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'email' => 'auth.emails.password',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+//
+        'teachers' => [
+            'provider' => 'teachers',
             'email' => 'auth.emails.password',
             'table' => 'password_resets',
             'expire' => 60,

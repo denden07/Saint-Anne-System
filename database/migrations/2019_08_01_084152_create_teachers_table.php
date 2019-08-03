@@ -40,9 +40,10 @@ class CreateTeachersTable extends Migration
             $table->string('teacherGuardianName');
             $table->string('teacherMotherName');
             $table->string('teacherGuardianNo');
-            $table->string('teacherUserName')->unique();
+            $table->string('username')->unique();
             $table->integer('role_id');
             $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

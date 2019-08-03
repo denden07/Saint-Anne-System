@@ -82,8 +82,8 @@
                                                                 </div>
 
                                                                 <div class="form-group">
-                                                                    {!! Form::label('teacherUserName','User Name: ') !!}
-                                                                    {!! Form::text('teacherUserName',null,['class'=>'form-control']) !!}
+                                                                    {!! Form::label('username','User Name: ') !!}
+                                                                    {!! Form::text('username',null,['class'=>'form-control']) !!}
                                                                 </div>
                                                                 <div class="form-group">
                                                                     {!! Form::label('password','Password: ') !!}

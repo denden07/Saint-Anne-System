@@ -43,7 +43,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('layouts.login');
+//        return view('layouts.login');
     }
 
     public function logout(Request $request)
@@ -52,4 +52,9 @@ class LoginController extends Controller
         return redirect('/log-in');
     }
 
+    public function username()
+    {
+        return 'username';
+
+    }
 }

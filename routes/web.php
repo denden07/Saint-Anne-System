@@ -26,10 +26,10 @@ Route::get('/admin', function (){
     return view('admin.index');
 });
 
-Route::get('teacher', function (){
-
-    return view('teacher.index');
-});
+//Route::get('teacher', function (){
+//
+//    return view('teacher.index');
+//});
 
 
 
@@ -92,6 +92,8 @@ Route::resource('admin/events','AdminEventsController',['names'=>[
 
 ]]);
 
+
+
 //Teacher Group
 
 Route::resource('teacher/students','TeacherStudentsController',['names'=>[
@@ -111,6 +113,14 @@ Route::resource('teacher/courses','TeacherCoursesController',['names'=>[
     'edit'=>'teacher.courses.edit'
 
 ]]);
+
+
+
+
+
+
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/admin', 'HomeController@index');
+Route::get('/teacher', 'TeacherController@index');

@@ -86,7 +86,7 @@
 <div class="left-sidebar-pro">
     <nav id="sidebar" class="">
         <div class="sidebar-header">
-            <a href="index.html"><img  width="200"  class="main-logo" src="{{URL::to('assets/img/logo/home.png')}}" alt="" /></a>
+            <a href="{{url('/admin')}}"><img  width="200"  class="main-logo" src="{{URL::to('assets/img/logo/home.png')}}" alt="" /></a>
             <strong><a href="index.html"><img src="{{URL::to('assets/img/logo/home.png')}}" alt="" /></a></strong>
         </div>
 
