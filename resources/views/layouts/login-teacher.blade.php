@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Saint Anne Academy</title>
+    <title>Saint Anne Academy | Teacher</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -33,7 +33,7 @@
     <div class="container-login100" style="background-image: url('{{URL::to('assets/img/logo/background.jpg')}}');">
         <div class="wrap-login100">
 
-                <form class="login100-form validate-form" role="form" method="POST" action="{{ route('login') }}">
+                <form class="login100-form validate-form" role="form" method="POST" action="{{ route('teacher.login.submit') }}">
                     {{ csrf_field() }}
 					<span class="login100-form-logo">
                 <img  width="500"  class="main-logo" src="{{URL::to('assets/img/logo/home.png')}}" alt="" />

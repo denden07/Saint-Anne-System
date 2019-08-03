@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Exception;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -46,5 +47,25 @@ class Handler extends ExceptionHandler
     public function render($request, Exception $e)
     {
         return parent::render($request, $e);
+    }
+    protected function unauthenticated($request, AuthenticationException $exception)
+    {
+        if($request->expectsJson()){
+            return response()->json(['error'=>'Unauthenticated'],401);
+        }
+        $guard = array_get($exception->guards(),0);
+
+        switch ($guard){
+            case 'teacher':
+                $login = 'teacher.login';
+                break;
+
+            default:
+                $login = 'login';
+                break;
+        }
+
+
+        return redirect()->guest(route($login));
     }
 }

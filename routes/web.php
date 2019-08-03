@@ -21,10 +21,10 @@ Route::get('/log-in',function (){
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
-Route::get('/admin', function (){
-
-    return view('admin.index');
-});
+//Route::get('/admin', function (){
+//
+//    return view('admin.index');
+//});
 
 //Route::get('teacher', function (){
 //
@@ -122,5 +122,15 @@ Route::resource('teacher/courses','TeacherCoursesController',['names'=>[
 
 Auth::routes();
 
-Route::get('/admin', 'HomeController@index');
-Route::get('/teacher', 'TeacherController@index');
+Route::get('/admin', 'HomeController@index')->name('admin.dashboard');
+
+
+Route::prefix('teacher')->group(function(){
+
+    Route::get('/login','Auth\TeacherLoginController@showLoginForm')->name('teacher.login');
+    Route::post('/login','Auth\TeacherLoginController@login')->name('teacher.login.submit');
+    Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
+
+});
+
+
