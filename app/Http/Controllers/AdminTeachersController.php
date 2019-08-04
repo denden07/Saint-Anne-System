@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Department;
 use App\Gender;
 use App\Photo;
+use App\Subject;
 use App\Teacher;
 use Illuminate\Http\Request;
 
@@ -77,6 +78,7 @@ class AdminTeachersController extends Controller
         $photo->save();
 
 
+
         return redirect('/admin/teachers');
 
     }
@@ -113,6 +115,8 @@ class AdminTeachersController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+
     }
 
     /**
@@ -125,4 +129,18 @@ class AdminTeachersController extends Controller
     {
         //
     }
+
+    public function addSubject($id)
+    {
+        $teachers = Teacher::findOrFail($id);
+        $subjects = Subject::all();
+        $subjects2= array();
+
+        foreach($subjects as $subject){
+            $subjects[$subject->id]=$subject->subjectName;
+        }
+
+        return view('admin.teacher.add-subject',compact('teachers','subjects','subjects2'));
+    }
+
 }

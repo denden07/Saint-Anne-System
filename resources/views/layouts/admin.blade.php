@@ -67,6 +67,10 @@
     <link rel="stylesheet" href="{{asset('assets/css/data-table/bootstrap-table.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/data-table/bootstrap-editable.css')}}">
 
+    @yield('css')
+
+
+
     <!-- style CSS
 		============================================ -->
     <link type="text/css" rel="stylesheet" href="{{ asset('style.css')}}">
@@ -987,6 +991,21 @@
         <!-- tawk chat JS
      ============================================ -->
         <script src="{{asset('js/tawk-chat.jss')}}"></script>
+@yield('scripts')
+
+    {{--js file for profile    --}}
+        <script src="{{asset('profiles/js/jquery-1.11.1.min.js')}}"></script>
+
+        <script>
+
+            $(document).ready(function() {
+                $("#formButton").click(function() {
+                    $("#form1").toggle();
+                });
+            });
+        </script>
+
+
 
 </body>
 

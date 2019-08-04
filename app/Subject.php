@@ -7,4 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Subject extends Model
 {
     //
+
+public function teachers(){
+    return $this->belongsToMany('App\Teacher','subject_teacher');
+}
+
+
 }

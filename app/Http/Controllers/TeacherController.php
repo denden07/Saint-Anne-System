@@ -11,6 +11,7 @@ class TeacherController extends Controller
      *
      * @return void
      */
+    protected $guard = 'teacher';
     public function __construct()
     {
         $this->middleware('auth:teacher');

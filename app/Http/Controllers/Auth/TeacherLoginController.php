@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class TeacherLoginController extends Controller
 {
     //
+    protected $guard = 'teacher';
 
     public function __construct()
     {

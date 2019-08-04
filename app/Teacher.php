@@ -32,5 +32,19 @@ class Teacher extends Authenticatable
         return $this->belongsTo('App\Department','department_id');
     }
 
+    public function subject(){
+        return $this->belongsToMany('App\Subject','subject_teacher');
+    }
+
+    public function isAdmin(){
+
+        if($this->roles->name =="Teacher"){
+
+            return true;
+
+        }
+        return false;
+    }
+
 
 }

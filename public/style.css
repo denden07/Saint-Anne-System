@@ -4780,3 +4780,24 @@ div#sparklinehome canvas {
 .courses-area{
 	margin-top: 2%;
 }
+
+/*teacher profile*/
+
+.profile-pic{
+	margin-top: 25px;
+}
+
+
+/*Hide Form*/
+.hidden-form {
+	padding: 15px;
+	border: 1px solid #666;
+	background: #fff;
+	display: none;
+}
+
+#formButton {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}

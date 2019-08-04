@@ -34,6 +34,7 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 
 //Admin Group
+Route::group(['middleware'=>'auth'],function (){
 Route::resource('admin/students','AdminStudentsController',['names'=>[
 
     'index'=>'admin.students.index',
@@ -55,9 +56,13 @@ Route::resource('admin/teachers','AdminTeachersController',['names'=>[
     'index'=>'admin.teachers.index',
     'create'=>'admin.teachers.create',
     'store'=>'admin.teachers.store',
-    'edit'=>'admin.teachers.edit'
+    'edit'=>'admin.teachers.edit',
+
 
 ]]);
+
+Route::get('admin/teachers/{id}/add-subject', 'AdminTeachersController@addSubject')->name('admin.teachers.add-subject');
+
 Route::resource('admin/sections','AdminSectionsController',['names'=>[
 
     'index'=>'admin.sections.index',
@@ -92,27 +97,35 @@ Route::resource('admin/events','AdminEventsController',['names'=>[
 
 ]]);
 
+    Route::resource('teacher/courses','TeacherCoursesController',['names'=>[
+
+        'index'=>'teacher.courses.index',
+        'create'=>'teacher.courses.create',
+        'store'=>'teacher.courses.store',
+        'edit'=>'teacher.courses.edit'
+
+    ]]);
+});
+
 
 
 //Teacher Group
+Route::group(['middleware'=>'auth:teacher'],function (){
 
-Route::resource('teacher/students','TeacherStudentsController',['names'=>[
+    Route::resource('teacher/students','TeacherStudentsController',['names'=>[
 
-    'index'=>'teacher.students.index',
-    'create'=>'teacher.students.create',
-    'store'=>'teacher.students.store',
-    'edit'=>'teacher.students.edit'
+        'index'=>'teacher.students.index',
+        'create'=>'teacher.students.create',
+        'store'=>'teacher.students.store',
+        'edit'=>'teacher.students.edit'
 
-]]);
+    ]]);
 
-Route::resource('teacher/courses','TeacherCoursesController',['names'=>[
 
-    'index'=>'teacher.courses.index',
-    'create'=>'teacher.courses.create',
-    'store'=>'teacher.courses.store',
-    'edit'=>'teacher.courses.edit'
 
-]]);
+
+
+});
 
 
 

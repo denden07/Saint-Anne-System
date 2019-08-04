@@ -39,7 +39,7 @@
                                         <th data-field="state" data-checkbox="true"></th>
                                         <th data-field="id">ID</th>
                                         <th data-field="photo">Photo</th>
-                                        <th data-field="name" data-editable="true">Name</th>
+                                        <th data-field="name" data-editable="false">Name</th>
                                         <th data-field="email" data-editable="true">Role</th>
                                         <th data-field="age" data-editable="true">Age</th>
                                         <th data-field="department">Department</th>
@@ -57,7 +57,7 @@
                                         <td></td>
                                         <td>{{$teacher->id}}</td>
                                         <td><img height="30" src="{{$teacher->teacherphotos ? $teacher->teacherphotos->file:'User has no Photo'}}"></td>
-                                        <td>{{$teacher->teacherFirstName ." ". $teacher->teacherMiddleName. " ".$teacher->teacherLastName . " ".$teacher->teacherExtensionName}}</td>
+                                        <td><a href="{{route('admin.teachers.add-subject',$teacher->id)}}" >{{$teacher->teacherFirstName ." ". $teacher->teacherMiddleName. " ".$teacher->teacherLastName . " ".$teacher->teacherExtensionName}}</a></td>
                                         <td>{{$teacher->teacherEmail}}</td>
                                         <td>{{$teacher->teacherAge}}</td>
                                         <td>{{$teacher->departments->deptName}}</td>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Teacher;
 use Illuminate\Http\Request;
 
 class TeacherCoursesController extends Controller
@@ -37,6 +38,9 @@ class TeacherCoursesController extends Controller
     public function store(Request $request)
     {
         //
+
+
+
     }
 
     /**
@@ -68,9 +72,22 @@ class TeacherCoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id )
     {
         //
+
+        $teacher= Teacher::find($id);
+        $teacher->save();
+
+        if(isset($request->subjects)){
+            $teacher->subject()->sync($request->subjects,true);
+        }else{
+            $teacher->subject()->sync(array());
+
+        }
+
+    return redirect('admin/teachers');
+
     }
 
     /**
