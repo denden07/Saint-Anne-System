@@ -8,6 +8,12 @@
 @section('is_active_teacher')
     class="active"
 @endsection
+@section('userphoto')
+    {{$users->photos->file}}
+@endsection
+@section('username')
+    {{$users->firstName." ". $users->middleName." ".$users->lastName." ".$users->nameExtension}}
+@endsection
 
 
 @section('contents')
@@ -45,8 +51,8 @@
                                         <th data-field="department">Department</th>
                                         <th data-field="gender">Gender</th>
                                         <th data-field="address" data-editable="true">Address</th>
-                                        <th data-field="phone" data-editable="true">Contact Number</th>
-                                        <th data-field="date" data-editable="true">Date Joined</th>
+                                        <th data-field="phone" data-editable="false">Contact Number</th>
+                                        <th  data-editable="false">Date Joined</th>
                                         <th data-field="date">Updated</th>
                                     </tr>
                                     </thead>
@@ -64,8 +70,8 @@
                                         <td>{{$teacher->genders->name}}</td>
                                         <td>{{$teacher->teacherHouseNo." ". $teacher->teacherBarangay." ".$teacher->teacherMunicipality." ".$teacher->teacherZipcode}}</td>
                                         <td>{{$teacher->teacherContactNo}}</td>
-                                        <td>{{$teacher->created_at->diffForHumans()}}</td>
-                                        <td>{{$teacher->updated_at->diffForHumans()}}</td>
+                                        <td>{{$teacher->created_at->format('M d Y')}}</td>
+                                        <td>{{$teacher->updated_at->format('M d Y')}}</td>
                                     </tr>
                                     @endforeach
                                         @endif

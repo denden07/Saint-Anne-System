@@ -115,9 +115,9 @@
                         </ul>
                     </li>
                     <li @yield('is_active_course')>
-                        <a class="has-arrow" href="{{route('teacher.courses.index')}}" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">My Courses</span></a>
+                        <a class="has-arrow" href="{{route('teacher.subject.index')}}" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">My Courses</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Courses" href="{{route('teacher.courses.index')}}"><span class="mini-sub-pro">My Courses</span></a></li>
+                            <li><a title="All Courses" href="{{route('teacher.subject.index')}}"><span class="mini-sub-pro">My Courses</span></a></li>
                             <li><a title="Add Courses" href="{{route('teacher.courses.create')}}"><span class="mini-sub-pro">Input Grades</span></a></li>
                         </ul>
                     </li>
@@ -291,8 +291,8 @@
                                             {{--</li>--}}
                                             <li class="nav-item">
                                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-                                                    <img src="{{URL::to('assets/img/profile/Ronaldo.png')}}" alt="" />
-                                                    <span class="admin-name">Cristiano Ronaldo</span>
+                                                    <img src="@yield('userpicture')" alt="" />
+                                                    <span class="admin-name">@yield('username')</span>
                                                     <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                 </a>
                                                 <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">

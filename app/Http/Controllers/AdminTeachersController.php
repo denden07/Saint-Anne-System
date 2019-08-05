@@ -10,6 +10,7 @@ use App\Teacher;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class AdminTeachersController extends Controller
 {
@@ -21,8 +22,11 @@ class AdminTeachersController extends Controller
     public function index()
     {
         //
+
+        $users =Auth::user();
+
         $teachers = Teacher::all();
-        return view('admin.teacher.index',compact('teachers'));
+        return view('admin.teacher.index',compact('teachers','users'));
 
     }
 
@@ -34,11 +38,12 @@ class AdminTeachersController extends Controller
     public function create()
     {
         //
+        $users =Auth::user();
 
         $genders = Gender::pluck('name','id')->all();
         $departments=Department::pluck('deptName','id')->all();
 
-        return view('admin.teacher.create',compact('genders','departments'));
+        return view('admin.teacher.create',compact('genders','departments','users'));
     }
 
     /**
@@ -132,15 +137,19 @@ class AdminTeachersController extends Controller
 
     public function addSubject($id)
     {
+       $dummy = Subject::find(7);
+//        dd(Teacher::with('teacherphotos')->find('2'));
+        $users =Auth::user();
         $teachers = Teacher::findOrFail($id);
         $subjects = Subject::all();
         $subjects2= array();
+
 
         foreach($subjects as $subject){
             $subjects[$subject->id]=$subject->subjectName;
         }
 
-        return view('admin.teacher.add-subject',compact('teachers','subjects','subjects2'));
+        return view('admin.teacher.add-subject',compact('teachers','subjects','subjects2','users','dummy'));
     }
 
 }

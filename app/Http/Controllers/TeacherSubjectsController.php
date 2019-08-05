@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Photo;
-use App\Student;
+use App\Teacher;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+//use Illuminate\Auth;
 
-use App\Http\Requests;
-
-class AdminStudentsController extends Controller
+class TeacherSubjectsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +17,15 @@ class AdminStudentsController extends Controller
     public function index()
     {
         //
-        return view('admin.students.index');
+
+        $users =Auth::guard('teacher')->user();
+//        dd($users);
+
+
+//        $teachers = Teacher::findOrFail($users);
+
+        return view('teacher.subject.index',compact('users'));
+
     }
 
     /**
@@ -29,7 +36,6 @@ class AdminStudentsController extends Controller
     public function create()
     {
         //
-        return view('admin.students.create');
     }
 
     /**
@@ -41,37 +47,6 @@ class AdminStudentsController extends Controller
     public function store(Request $request)
     {
         //
-        if(trim($request->password )== ''){
-            $input = $request->except('password');
-        }else{
-            $input= $request->all();
-            $input['password'] =bcrypt($request->password);
-        }
-
-        if($file = $request->file('photo_id')){
-
-            $name = time() . $file->getClientOriginalName();
-
-            $file->move('images',$name);
-
-            $photo = Photo::create(['file'=>$name]);
-
-
-            $input['photo_id']=$photo->id;
-
-        }
-
-
-        $createdUser = Student::create($input);
-
-        $photo->teacher_id = $createdUser->id;
-        $photo->save();
-
-
-
-        return redirect('/admin/teachers');
-
-
     }
 
     /**

@@ -10,6 +10,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class AdminUsersController extends Controller
 {
@@ -21,8 +22,10 @@ class AdminUsersController extends Controller
     public function index()
     {
         //
+
+        $users_auth = Auth::user();
         $users = User::all();
-        return view('admin.users.index',compact('users'));
+        return view('admin.users.index',compact('users','users_auth'));
 
     }
 
@@ -33,11 +36,11 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-
+        $users_auth =Auth::user();
         $roles = Role::pluck('name','id')->all();
         $genders = Gender::pluck('name','id')->all();
 
-        return view('admin.users.create',compact('roles','genders'));
+        return view('admin.users.create',compact('roles','genders','users_auth'));
     }
 
     /**

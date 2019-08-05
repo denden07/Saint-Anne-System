@@ -91,7 +91,7 @@
     <nav id="sidebar" class="">
         <div class="sidebar-header">
             <a href="{{url('/admin')}}"><img  width="200"  class="main-logo" src="{{URL::to('assets/img/logo/home.png')}}" alt="" /></a>
-            <strong><a href="index.html"><img src="{{URL::to('assets/img/logo/home.png')}}" alt="" /></a></strong>
+            <strong><a href="{{url('/admin')}}"><img src="{{URL::to('assets/img/logo/home.png')}}" alt="" /></a></strong>
         </div>
 
 
@@ -321,11 +321,11 @@
                                             {{--</li>--}}
                                             <li class="nav-item">
                                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-                                                    <img src="{{URL::to('assets/img/profile/Ronaldo.png')}}" alt="" />
-                                                    <span class="admin-name">Cristiano Ronaldo</span>
+                                                    <img src="@yield('userphoto')">
+                                                    <span class="admin-name">@yield('username')</span>
                                                     <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                 </a>
-                                                <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                                                <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn separate">
                                                     <li><a href="#"><span class="edu-icon edu-home-admin author-log-ic"></span>My Account</a>
                                                     </li>
                                                     <li><a href="#"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>

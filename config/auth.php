@@ -18,6 +18,10 @@ return [
         'passwords' => 'users',
     ],
 
+    'teacher' => [
+        'guard' => 'teacher',
+        'passwords' => 'teachers',
+    ],
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards

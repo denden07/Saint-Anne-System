@@ -77,14 +77,16 @@ class TeacherCoursesController extends Controller
         //
 
         $teacher= Teacher::find($id);
+
         $teacher->save();
 
         if(isset($request->subjects)){
             $teacher->subject()->sync($request->subjects,true);
         }else{
             $teacher->subject()->sync(array());
-
         }
+
+//        $teacher->subject()->detach($request->subjects);
 
     return redirect('admin/teachers');
 

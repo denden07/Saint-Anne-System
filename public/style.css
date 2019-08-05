@@ -4801,3 +4801,35 @@ div#sparklinehome canvas {
 	margin-right: auto;
 	margin-left: auto;
 }
+
+/*add subject to teacher
+ */
+
+.teacher-card-name{
+	margin-top: 10%;
+
+}
+
+
+
+.well{
+	width: 100%;
+}
+.teacher-card-background{
+	background: #A9A9A9;
+	border-radius:37px;
+	-moz-border-radius:37px;
+	-webkit-border-radius:37px;
+	border-top: solid black 5px;
+	border-bottom: solid black 3px;
+	padding-bottom: 20px;
+}
+
+.teacher-card-button{
+	margin-top: 10px;
+	padding: 15px;
+	border-radius:37px;
+}
+.separate{
+	margin-left: 40%;
+}

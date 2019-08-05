@@ -1,18 +1,28 @@
 @extends("layouts.teacher")
 
 @section('title')
-    DASHBOARD
+   My Subjects
+@endsection
+
+
+@section('is_active_students')
+    class="active"
 @endsection
 @section('userpicture')
     {{$users->teacherphotos->file}}
-    @endsection
+@endsection
+
 @section('username')
     {{$users->teacherFirstName." ". $users->teacherMiddleName." ".$users->teacherLastName." ".$users->teacherExtensionName}}
 @endsection
 
+@section('contents')
+@foreach($users->subject as $subjects)
+<ul>
+    <li>{{$subjects->subjectName}}</li>
+</ul>
+
+    @endforeach
 
 
-@section('header')
-    DASHBOARD
 @endsection
-

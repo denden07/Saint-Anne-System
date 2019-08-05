@@ -26,7 +26,7 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="review-content-section">
                                             <div id="dropzone1" class="pro-ad">
-                                                <form action="/upload" class="dropzone dropzone-custom needsclick add-professors" id="demo1-upload">
+                                                {!! Form::open(['method'=>'POST','action'=>'AdminStudentsController@store','files'=>true]) !!}
 
                                                     <div class="container-row">
                                                     <div class="row">
@@ -259,7 +259,7 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </form>
+                                                {!! Form::close() !!}
                                             </div>
                                         </div>
                                     </div>

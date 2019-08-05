@@ -8,6 +8,13 @@
     class="active"
 @endsection
 
+@section('userphoto')
+    {{$users_auth ->photos->file}}
+@endsection
+@section('username')
+    {{$users_auth ->firstName." ". $users_auth ->middleName." ".$users_auth ->lastName." ".$users_auth ->nameExtension}}
+@endsection
+
 @section('contents')
 
 
@@ -61,8 +68,8 @@
                                         <td>{{$user->genders->name}}</td>
                                         <td>{{$user->houseNo." ". $user->barnagay." ".$user->municipality." ".$user->zipCode}}</td>
                                         <td>{{$user->mobileNo}}</td>
-                                        <td>{{$user->created_at->diffForHumans()}}</td>
-                                        <td>{{$user->updated_at->diffForHumans()}}</td>
+                                        <td>{{$user->created_at->format('M d Y')}}</td>
+                                        <td>{{$user->updated_at->format('M d Y')}}</td>
                                     </tr>
                                     @endforeach
                                     @endif
