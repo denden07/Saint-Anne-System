@@ -134,13 +134,13 @@
                         </ul>
                     </li>
                     <li @yield('is_active_course')>
-                        <a class="has-arrow" href="{{route('admin.courses.index')}}" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Courses</span></a>
+                        <a class="has-arrow" href="{{route('admin.courses.index')}}" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">Subejcts</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Courses" href="{{route('admin.courses.index')}}"><span class="mini-sub-pro">All Courses</span></a></li>
-                            <li><a title="Add Courses" href="{{route('admin.courses.create')}}"><span class="mini-sub-pro">Add Course</span></a></li>
-                            <li><a title="Edit Courses" href="edit-course.html"><span class="mini-sub-pro">Edit Course</span></a></li>
-                            <li><a title="Courses Profile" href="course-info.html"><span class="mini-sub-pro">Courses Info</span></a></li>
-                            <li><a title="Product Payment" href="course-payment.html"><span class="mini-sub-pro">Courses Payment</span></a></li>
+                            <li><a title="All Courses" href="{{route('admin.courses.index')}}"><span class="mini-sub-pro">All Subejcts</span></a></li>
+                            <li><a title="Add Courses" href="{{route('admin.courses.create')}}"><span class="mini-sub-pro">Add Subejcts</span></a></li>
+                            <li><a title="Edit Courses" href="edit-course.html"><span class="mini-sub-pro">Edit Subejcts</span></a></li>
+                            <li><a title="Courses Profile" href="course-info.html"><span class="mini-sub-pro">Subejcts Info</span></a></li>
+                            <li><a title="Product Payment" href="course-payment.html"><span class="mini-sub-pro">Subejcts Payment</span></a></li>
                         </ul>
                     </li>
                     <li @yield('is_active_library')>

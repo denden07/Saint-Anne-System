@@ -1,7 +1,7 @@
 @extends("layouts.teacher")
 
 @section('title')
-   My Subjects
+    My Subjects
 @endsection
 
 
@@ -17,12 +17,14 @@
 @endsection
 
 @section('contents')
-@foreach($subjects as $subject)
-<ul>
-    <li><a href="{{route('teacher.subject.my-students',['subject_id'=>$subject->id])}}">{{$subject->subject->subjectName}}</a></li>
-</ul>
 
-    @endforeach
+        <ul>
+            @foreach($subjects->students as $student)
+                <li><a href="{{route('teacher.subject.grade-students',['subject_id'=>$subjects->id,'student_id'=>$student->id])}}">{{$student->studentFirstName}}</a></li>
+            @endforeach
+        </ul>
+
+
 
 
 @endsection

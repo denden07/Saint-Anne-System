@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\SubjectDetails;
 use App\Teacher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,12 +20,14 @@ class TeacherSubjectsController extends Controller
         //
 
         $users =Auth::guard('teacher')->user();
-//        dd($users);
+        $user =Auth::guard('teacher')->id();
+//
+        $subjects= SubjectDetails::where('teacher_id',$user)->get();
 
 
 //        $teachers = Teacher::findOrFail($users);
 
-        return view('teacher.subject.index',compact('users'));
+        return view('teacher.subject.index',compact('users','subjects'));
 
     }
 
@@ -92,5 +95,28 @@ class TeacherSubjectsController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function studentList($subject_id){
+        $users =Auth::guard('teacher')->user();
+
+         $subjects = SubjectDetails::findOrFail($subject_id);
+
+
+
+    return view('teacher.subject.student-list',compact('subjects','users'));
+
+    }
+
+
+    public function gradeStudent(){
+        $users =Auth::guard('teacher')->user();
+
+
+
+
+
+        return view('teacher.grades.create',compact('users'));
+
     }
 }

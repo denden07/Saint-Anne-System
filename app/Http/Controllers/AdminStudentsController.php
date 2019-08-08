@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
+use App\Gender;
 use App\Photo;
 use App\Student;
+use App\Teacher;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -18,7 +22,10 @@ class AdminStudentsController extends Controller
     public function index()
     {
         //
-        return view('admin.students.index');
+        $students =Student::all();
+
+        return view('admin.students.index',compact('students'));
+
     }
 
     /**
@@ -29,7 +36,10 @@ class AdminStudentsController extends Controller
     public function create()
     {
         //
-        return view('admin.students.create');
+        $departments=Department::pluck('deptName','id')->all();
+        $genders = Gender::pluck('name','id')->all();
+
+        return view('admin.students.create',compact('departments','genders'));
     }
 
     /**
@@ -64,8 +74,10 @@ class AdminStudentsController extends Controller
 
         $createdUser = Student::create($input);
 
-        $photo->teacher_id = $createdUser->id;
+
+        $photo->student_id = $createdUser->id;
         $photo->save();
+
 
 
 

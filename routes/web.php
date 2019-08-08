@@ -43,6 +43,9 @@ Route::get('/logout', 'Auth\LoginController@logout');
 //Teacher Group
 Route::group(['middleware'=>'auth:teacher'],function (){
 
+    Route::get('teacher/subject/{id}/my-students', 'TeacherSubjectsController@studentList')->name('teacher.subject.my-students');
+    Route::get('teacher/subject/{subject_id}/grade/{student_id}', 'TeacherSubjectsController@gradeStudent')->name('teacher.subject.grade-students');
+
     Route::resource('teacher/students','TeacherStudentsController',['names'=>[
 
         'index'=>'teacher.students.index',
@@ -96,7 +99,8 @@ Route::group(['middleware'=>'auth:teacher'],function (){
         ]]);
 
         Route::get('admin/teachers/{id}/add-subject', 'AdminTeachersController@addSubject')->name('admin.teachers.add-subject');
-
+        Route::get('admin/subject/{id}/add-student', 'AdminCoursesController@addStudent')->name('admin.subject.add-student');
+        Route::patch('admin/subject/{id}/update','AdminCoursesController@updateSubjectStudent')->name('admin.subject.add-student.update');
         Route::resource('admin/sections','AdminSectionsController',['names'=>[
 
             'index'=>'admin.sections.index',
@@ -157,6 +161,16 @@ Route::prefix('teacher')->group(function(){
     Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
 
 });
+
+ Route::resource('teacher/grade','AdminEventsController',['names'=>[
+
+    'index'=>'admin.events.index',
+    'create'=>'admin.events.create',
+    'store'=>'admin.events.store',
+    'edit'=>'admin.events.edit'
+
+
+]]);
 
 
 

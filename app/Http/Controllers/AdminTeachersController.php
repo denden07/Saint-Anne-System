@@ -6,7 +6,9 @@ use App\Department;
 use App\Gender;
 use App\Photo;
 use App\Subject;
+use App\SubjectDetails;
 use App\Teacher;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -135,21 +137,22 @@ class AdminTeachersController extends Controller
         //
     }
 
-    public function addSubject($id)
+    public function addSubject($teacher_id)
     {
-       $dummy = Subject::find(7);
+
+//       $dummy = Subject::find(7);
 //        dd(Teacher::with('teacherphotos')->find('2'));
         $users =Auth::user();
-        $teachers = Teacher::findOrFail($id);
+        $teachers = Teacher::findOrFail($teacher_id);
         $subjects = Subject::all();
         $subjects2= array();
-
+        $subjects_details = SubjectDetails::where('teacher_id',$teacher_id)->get();
 
         foreach($subjects as $subject){
             $subjects[$subject->id]=$subject->subjectName;
         }
 
-        return view('admin.teacher.add-subject',compact('teachers','subjects','subjects2','users','dummy'));
+        return view('admin.teacher.add-subject',compact('teachers','subjects','subjects2','users','subjects_details'));
     }
 
 }

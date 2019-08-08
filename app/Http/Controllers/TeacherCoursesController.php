@@ -72,11 +72,11 @@ class TeacherCoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id )
+    public function update(Request $request, $teacher_id )
     {
         //
 
-        $teacher= Teacher::find($id);
+        $teacher= Teacher::find($teacher_id);
 
         $teacher->save();
 

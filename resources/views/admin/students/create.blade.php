@@ -115,23 +115,18 @@
                                                         </div>
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                             <div class="form-group">
-                                                                {!! Form::label('course_id','Course:') !!}
-                                                                <select name="course_id" class="form-control">
-                                                                    <option value="none" selected="" disabled="">Select Course/Year</option>
-                                                                    <option value="0">ABM</option>
-                                                                    <option value="1">HUMS</option>
-                                                                    <option value="2">GAS</option>
-                                                                </select>
+                                                                <div class="form-group">
+                                                                    {!! Form::label('department_id','Department:') !!}
+                                                                    {!!  Form::select('department_id',[''=>'Choose Department']+$departments,null,['class'=>'form-control'])!!}
+                                                                </div>
                                                             </div>
 
 
                                                             <div class="form-group">
-                                                                {!! Form::label('gender_id','Gender:') !!}
-                                                                <select name="gender_id" class="form-control">
-                                                                    <option value="none" selected="" disabled="">Select Gender</option>
-                                                                    <option value="0">Male</option>
-                                                                    <option value="1">Female</option>
-                                                                </select>
+                                                                <div class="form-group">
+                                                                    {!! Form::label('gender_id','Gender:') !!}
+                                                                    {!! Form::select('gender_id',[''=>'Choose Gender']+$genders,null,['class'=>'form-control']) !!}
+                                                                </div>
                                                             </div>
                                                             <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
@@ -165,6 +160,15 @@
                                                             <div class="form-group">
                                                                 {!! Form::label('studentReligion','Religion: ') !!}
                                                                 {!! Form::text('studentReligion',null,['class'=>'form-control']) !!}
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                {!! Form::label('username','User Name: ') !!}
+                                                                {!! Form::text('username',null,['class'=>'form-control']) !!}
+                                                            </div>
+                                                            <div class="form-group">
+                                                                {!! Form::label('password','Password: ') !!}
+                                                                {!! Form::password('password',null,['class'=>'form-control']) !!}
                                                             </div>
 
                                                         </div>

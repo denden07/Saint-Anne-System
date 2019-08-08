@@ -2,15 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Student;
-use App\Subject;
-use App\SubjectDetails;
-use App\Teacher;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-
-class AdminCoursesController extends Controller
+class TeacherGradeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,10 +14,6 @@ class AdminCoursesController extends Controller
     public function index()
     {
         //
-      $subjects = SubjectDetails::all();
-
-
-        return view('admin.courses.index',compact('subjects'));
     }
 
     /**
@@ -33,13 +23,7 @@ class AdminCoursesController extends Controller
      */
     public function create()
     {
-
-//        $subjects = Subject::pluck('subjectName','id')->all();
-        $subjects = Subject::all()->pluck('full_subject','id')->all();
-        $teachers = Teacher::all()->pluck('teacher_full','id')->all();
-
-
-        return view('admin.courses.create',compact('subjects','teachers'));
+        //
     }
 
     /**
@@ -51,18 +35,6 @@ class AdminCoursesController extends Controller
     public function store(Request $request)
     {
         //
-
-
-
-     $subject = new SubjectDetails();
-     $subject->teacher_id = $request->teacher_id;
-     $subject->subject_id = $request->subject_id;
-     $subject->schedule = $request->schedule;
-    $subject->save();
-
- return redirect('admin/courses');
-
-
     }
 
     /**
@@ -110,27 +82,5 @@ class AdminCoursesController extends Controller
         //
     }
 
-    public function addStudent($subject_details)
-    {
-
-        $subjects = SubjectDetails::find($subject_details);
-        $students = Student::all()->pluck('student_full','id')->all();
-
-        return view('admin.courses.add-student',compact('subjects','students'));
-    }
-
-
-    public function updateSubjectStudent(Request $request,$subject_details){
-
-        $subject= SubjectDetails::find($subject_details);
-
-        $subject->save();
-
-        if(isset($request->students)){
-            $subject->students()->sync($request->students,true);
-        }else{
-            $subject->students()->sync(array());
-        }
-    }
 
 }

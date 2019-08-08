@@ -33,8 +33,12 @@
                             <p><strong>Main Expertise: </strong>  {{$teachers->teacherCourse}} </p>
                             <p><strong>Date Joined: </strong> {{$teachers->created_at->format('M d Y')}}</p>
                             <p><strong>Subjects: </strong>
-                                @foreach($teachers->subject as $tag)
-                                    <span class="label label-default">{{$tag->subjectName}}</span>
+                                {{--@foreach($teachers->subject as $tag)--}}
+                                    {{--<span class="label label-default">{{$tag->subjectName}}</span>--}}
+                                    {{--@endforeach--}}
+                                @foreach($subjects_details as $subject)
+
+                                    <span class="label label-default">{{$subject->subject->subjectName}}</span>
                                     @endforeach
                             </p>
                         </div>

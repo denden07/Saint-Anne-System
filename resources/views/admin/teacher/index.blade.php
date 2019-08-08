@@ -63,7 +63,7 @@
                                         <td></td>
                                         <td>{{$teacher->id}}</td>
                                         <td><img height="30" src="{{$teacher->teacherphotos ? $teacher->teacherphotos->file:'User has no Photo'}}"></td>
-                                        <td><a href="{{route('admin.teachers.add-subject',$teacher->id)}}" >{{$teacher->teacherFirstName ." ". $teacher->teacherMiddleName. " ".$teacher->teacherLastName . " ".$teacher->teacherExtensionName}}</a></td>
+                                        <td><a href="{{route('admin.teachers.add-subject',['teacher_id'=>$teacher->id])}}" >{{$teacher->teacherFirstName ." ". $teacher->teacherMiddleName. " ".$teacher->teacherLastName . " ".$teacher->teacherExtensionName}}</a></td>
                                         <td>{{$teacher->teacherEmail}}</td>
                                         <td>{{$teacher->teacherAge}}</td>
                                         <td>{{$teacher->departments->deptName}}</td>

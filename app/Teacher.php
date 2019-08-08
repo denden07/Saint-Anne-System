@@ -46,5 +46,9 @@ class Teacher extends Authenticatable
         return false;
     }
 
+    public function getTeacherFullAttribute(){
+        return $this->teacherFirstName." ".$this->teacherMiddleName." ".$this->teacherLastName." ".$this->teacherExtensionName;
+    }
+
 
 }

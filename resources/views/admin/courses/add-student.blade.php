@@ -1,7 +1,7 @@
 @extends("layouts.admin")
 
 @section('title')
-  Add Course
+    Add Course
 @endsection
 
 
@@ -31,7 +31,8 @@
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                         <div class="review-content-section">
                                             <div id="dropzone1" class="pro-ad">
-                                                {!! Form::open(['method'=>'POST','action'=>'AdminCoursesController@store','files'=>true]) !!}
+
+                                                {!! Form::model($subjects,['method'=>'PATCH','action'=>['AdminCoursesController@updateSubjectStudent',$subjects->id],'files'=>true]) !!}
 
 
 
@@ -47,52 +48,44 @@
                                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
 
                                                             <div class="form-group">
-                                                                {!! Form::label('subject_id','Subject:') !!}
-                                                                {!!  Form::select('subject_id',$subjects,null,['class'=>'select2-multi form-control','multiple'=>'multiple'])!!}
+                                                                {!! Form::label('students','Subject:') !!}
+                                                                {!!  Form::select('students[]',$students,null,['class'=>'select2-multi form-control','multiple'=>'multiple'])!!}
                                                             </div>
 
-
-                                                            <div class="form-group">
-                                                                {!! Form::label('teacher_id',"Teacher's Name:") !!}
-                                                                {!!  Form::select('teacher_id',$teachers,null,['class'=>'select2-multi form-control','multiple'=>'multiple'])!!}
-                                                            </div>
-
-
-                                                            <div class="form-group">
-                                                                {!! Form::label('schedule','Schedule: ') !!}
-                                                                {!! Form::text('schedule',null,['class'=>'form-control']) !!}
-                                                            </div>
 
 
                                                         </div>
 
 
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="payment-adress">
-                                                            <div class="form-group">
-                                                                {!! Form::submit('Create Subject',['class'=>'btn btn-primary waves-effect waves-light']) !!}
+                                                        <div class="row">
+                                                            <div class="col-lg-12">
+                                                                <div class="payment-adress">
+                                                                    <div class="form-group">
+                                                                        {!! Form::submit('Create Subject',['class'=>'btn btn-primary waves-effect waves-light']) !!}
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
+                                                        {!! Form::close() !!}
+                                                            <p>{{$subjects->subject->subjectName}}</p>
+                                                            <p>{{$subjects->teacher->teacherFirstName." ".$subjects->teacher->teacherMiddleName." ".$subjects->teacher->teacherLastName." ".$subjects->teacher->teacherExtensionName}}</p>
+
                                                     </div>
                                                 </div>
-                                                {!! Form::close() !!}
                                             </div>
                                         </div>
                                     </div>
+
+
+
                                 </div>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-@endsection
+            @endsection
 
             @section('scripts')
 
@@ -100,6 +93,6 @@
                 <script src="{{asset('multiselect/js/select2.js')}}"></script>
                 <script type="text/javascript">
                     $('.select2-multi').select2();
-                    {{--$('.select2-multi').select2().val({!!json_encode( $teachers->subject-> pluck('id')) !!}).trigger('change');--}}
+                    $('.select2-multi').select2().val({!!json_encode( $subjects->students-> pluck('id')) !!}).trigger('change');
                 </script>
 @endsection
