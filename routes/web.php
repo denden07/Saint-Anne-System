@@ -45,6 +45,7 @@ Route::group(['middleware'=>'auth:teacher'],function (){
 
     Route::get('teacher/subject/{id}/my-students', 'TeacherSubjectsController@studentList')->name('teacher.subject.my-students');
     Route::get('teacher/subject/{subject_id}/grade/{student_id}', 'TeacherSubjectsController@gradeStudent')->name('teacher.subject.grade-students');
+    Route::post('teacher/subject/{subject_id}/grade/{student_id}', 'TeacherSubjectsController@inputHandler')->name('teacher.subject.input-grade');
 
     Route::resource('teacher/students','TeacherStudentsController',['names'=>[
 

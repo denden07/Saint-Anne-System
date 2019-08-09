@@ -41,6 +41,11 @@
                                     <span class="label label-default">{{$subject->subject->subjectName}}</span>
                                     @endforeach
                             </p>
+
+                            {{--@foreach($students->subject as $student)--}}
+
+                                {{--<span class="label label-default">{{$student->subjectName}}</span>--}}
+                            {{--@endforeach--}}
                         </div>
                         <div class="col-xs-12 col-sm-4 text-center">
                             <figure>

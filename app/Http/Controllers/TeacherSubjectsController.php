@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Grade;
+use App\Student;
 use App\SubjectDetails;
 use App\Teacher;
 use Illuminate\Http\Request;
@@ -23,6 +25,7 @@ class TeacherSubjectsController extends Controller
         $user =Auth::guard('teacher')->id();
 //
         $subjects= SubjectDetails::where('teacher_id',$user)->get();
+
 
 
 //        $teachers = Teacher::findOrFail($users);
@@ -50,6 +53,8 @@ class TeacherSubjectsController extends Controller
     public function store(Request $request)
     {
         //
+
+
     }
 
     /**
@@ -101,7 +106,7 @@ class TeacherSubjectsController extends Controller
         $users =Auth::guard('teacher')->user();
 
          $subjects = SubjectDetails::findOrFail($subject_id);
-
+//dd($subjects);
 
 
     return view('teacher.subject.student-list',compact('subjects','users'));
@@ -109,14 +114,45 @@ class TeacherSubjectsController extends Controller
     }
 
 
-    public function gradeStudent(){
+    public function gradeStudent($subject_id, $student_id){
         $users =Auth::guard('teacher')->user();
+        $students = Student::findOrFail($student_id);
+        $subjects = SubjectDetails::findOrFail($subject_id);
+
+
+//
 
 
 
 
-
-        return view('teacher.grades.create',compact('users'));
+        return view('teacher.grades.create',compact('users','students','subjects'));
 
     }
+
+
+
+    public function inputHandler(Request $request,$subject_id, $student_id)
+    {
+
+        $first = $_POST['firstGrade'];
+        $second = $_POST['secondGrade'];
+        $third = $_POST['thirdGrade'];
+        $fourth = $_POST['fourthGrade'];
+        $final = $first+$second+$third+$fourth;
+        $final /= 4;
+        $final = round($final);
+
+        $grade = new Grade();
+        $grade->student_id =$student_id;
+        $grade->subject_id = $subject_id;
+        $grade->teacher_id = Auth::guard('teacher')->id();
+        $grade->firstGrade =$first;
+        $grade->secondGrade =$second;
+        $grade->thirdGrade =$third;
+        $grade->fourthGrade =$fourth;
+        $grade->ave =$final;
+        $grade->save();
+
+    }
+
 }

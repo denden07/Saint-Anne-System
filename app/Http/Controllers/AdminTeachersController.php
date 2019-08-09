@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Department;
 use App\Gender;
 use App\Photo;
+use App\Student;
 use App\Subject;
 use App\SubjectDetails;
 use App\Teacher;
@@ -139,7 +140,7 @@ class AdminTeachersController extends Controller
 
     public function addSubject($teacher_id)
     {
-
+//       dd(SubjectDetails::findOrFail(2)->subject_id);
 //       $dummy = Subject::find(7);
 //        dd(Teacher::with('teacherphotos')->find('2'));
         $users =Auth::user();

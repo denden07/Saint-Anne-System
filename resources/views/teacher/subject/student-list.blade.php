@@ -1,7 +1,7 @@
 @extends("layouts.teacher")
 
 @section('title')
-    My Subjects
+    My {{$subjects->subject->subjectName}} Student List
 @endsection
 
 
