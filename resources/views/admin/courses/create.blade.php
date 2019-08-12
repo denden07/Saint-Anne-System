@@ -63,6 +63,11 @@
                                                                 {!! Form::text('schedule',null,['class'=>'form-control']) !!}
                                                             </div>
 
+                                                            <div class="form-group">
+                                                                {!! Form::label('year','Year: ') !!}
+                                                                {!! Form::text('year',null,['class'=>'form-control']) !!}
+                                                            </div>
+
 
                                                         </div>
 

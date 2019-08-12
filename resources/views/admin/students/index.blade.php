@@ -50,9 +50,10 @@
                            </tr>
                            </thead>
                            <tbody>
-                           <tr>
+
                               @if($students)
                                  @foreach($students as$student)
+                                    <tr>
                               <td></td>
                               <td>{{$student->id}}</td>
                               <td><img height="30" src="{{$student->studentphotos ? $student->studentphotos->file:'User has no Photo'}}"></td>
@@ -64,9 +65,10 @@
                               <td>{{$student->studentContactNo}}</td>
                              <td>{{$student->created_at->format('M d Y')}}</td>
                               <td>{{$student->updated_at->format('M d Y')}}</td>
+                                    </tr>
+
                                  @endforeach
                                  @endif
-                           </tr>
                            </tbody>
                         </table>
                      </div>

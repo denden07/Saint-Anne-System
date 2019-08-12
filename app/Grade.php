@@ -8,7 +8,7 @@ class Grade extends Model
 {
     //
     protected $fillable =[
-        'student_id','teacher_id','subject_id','firstGrade','secondGrade','thirdGrade','fourthGrade','ave','status'
+        'student_id','teacher_id','subject_id','firstGrade','secondGrade','thirdGrade','fourthGrade','ave','status','subject_origin','year'
     ];
 
     public function student(){
@@ -23,4 +23,7 @@ class Grade extends Model
         return $this->belongsTo('App\Subject','subject_id');
     }
 
+    public function subjectOrigin(){
+        return $this->belongsTo('App\SubjectDetails','subject_origin');
+    }
 }

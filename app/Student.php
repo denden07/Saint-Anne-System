@@ -39,5 +39,9 @@ class Student extends Model
         return $this->belongsToMany('App\Subject','student_subject','student_id');
     }
 
+    public function grade(){
+        return $this->hasOne('App\Grade');
+    }
+
 
 }

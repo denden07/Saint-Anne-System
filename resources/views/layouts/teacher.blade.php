@@ -115,10 +115,10 @@
                         </ul>
                     </li>
                     <li @yield('is_active_course')>
-                        <a class="has-arrow" href="{{route('teacher.subject.index')}}" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">My Courses</span></a>
+                        <a class="has-arrow" href="{{route('teacher.subject.index')}}" aria-expanded="false"><span class="educate-icon educate-course icon-wrap"></span> <span class="mini-click-non">My Subjects</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Courses" href="{{route('teacher.subject.index')}}"><span class="mini-sub-pro">My Courses</span></a></li>
-                            <li><a title="Add Courses" href="{{route('teacher.courses.create')}}"><span class="mini-sub-pro">Input Grades</span></a></li>
+                            <li><a title="All Courses" href="{{route('teacher.subject.index')}}"><span class="mini-sub-pro">My Subjects</span></a></li>
+                            <li><a title="Add Courses" href="{{route('teacher.subject.student-record-index')}}"><span class="mini-sub-pro">View Records</span></a></li>
                         </ul>
                     </li>
 

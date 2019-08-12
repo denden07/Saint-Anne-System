@@ -23,6 +23,8 @@ class CreateGradesTable extends Migration
             $table->integer('thirdGrade');
             $table->integer('fourthGrade');
             $table->integer('ave');
+            $table->integer('subject_origin');
+            $table->string('year');
             $table->integer('status');
             $table->timestamps();
         });

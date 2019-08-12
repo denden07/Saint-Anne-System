@@ -19,12 +19,13 @@
 @section('contents')
 
     <h3>Student Name: {{$students->studentFirstName}}</h3>
+    <img height="50" src="{{$students->studentphotos->file}}" alt="">
 
 
     <h4>Subject: {{$subjects->subject->subjectName}} </h4>
 
     {{--{!! Form::open(['method'=>'POST','action'=>'TeacherSubjectsController@inputHandler','files'=>true]) !!}--}}
-    <form action="{{route('teacher.subject.input-grade', ['subject_id'=> $subjects->subject->id, 'student_id'=>$students->id])}}" method="post">
+    <form action="{{route('teacher.subject.input-grade', ['subject_id'=> $subjects, 'student_id'=>$students->id])}}" method="post">
     <div class="row">
         <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
 
@@ -32,7 +33,7 @@
             <div class="form-group">
                 {!! Form::label('firstGrade','First Grade:') !!}
                 {{--{!! Form::number('firstGrade',null,['class'=>'form-control']) !!}--}}
-                <input type="number" name="firstGrade" class="form-control">
+                <input style="border: black 2px solid" type="number" name="firstGrade" class="form-control">
             </div>
         </div>
 
@@ -68,7 +69,7 @@
                 <div class="col-lg-12">
                     <div class="payment-adress">
                         <div class="form-group">
-                            {!! Form::submit('Enroll Student',['class'=>'btn btn-primary waves-effect waves-light']) !!}
+                            {!! Form::submit('Submit Grades',['class'=>'btn btn-primary waves-effect waves-light']) !!}
                         </div>
                     </div>
                 </div>

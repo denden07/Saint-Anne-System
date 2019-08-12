@@ -18,6 +18,8 @@ class CreateSubjectDetailsTable extends Migration
             $table->integer('subject_id');
             $table->integer('teacher_id');
             $table->string('schedule');
+            $table->string('year');
+            $table->integer('active');
             $table->timestamps();
         });
     }

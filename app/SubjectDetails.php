@@ -9,7 +9,7 @@ class SubjectDetails extends Model
     //
 
     protected $fillable =[
-        'subject_id','teacher_id','schedule'
+        'subject_id','teacher_id','schedule','year','active'
     ];
 
     public function teacher(){

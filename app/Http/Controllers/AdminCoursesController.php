@@ -58,6 +58,8 @@ class AdminCoursesController extends Controller
      $subject->teacher_id = $request->teacher_id;
      $subject->subject_id = $request->subject_id;
      $subject->schedule = $request->schedule;
+     $subject->year = $request->year;
+     $subject->active = 1;
     $subject->save();
 
  return redirect('admin/courses');
