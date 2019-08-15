@@ -17,12 +17,28 @@
 @endsection
 
 @section('contents')
-@foreach($subjects as $subject)
-<ul>
-    <li><a href="{{route('teacher.subject.my-students',['subject_id'=>$subject->id])}}">{{$subject->subject->subjectName}}</a></li>
-</ul>
+ <div class="container-fluid my-subject-teacher-container">
 
-    @endforeach
+    <h1 class="my-subjects-teacher-headings">My Active Subjects</h1>
 
+    <table class="table my-subject-teacher-table">
+        <thead>
+          <tr>
+            <th>Subject Name</th>
+            <th>Schedules</th>
+            <th>School Year</th>
+          </tr>
+        </thead>
+        <tbody>
+        @foreach($subjects as $subject)
+          <tr>
+            <td><a class="my-subject-teacher-name" href="{{route('teacher.subject.my-students',['subject_id'=>$subject->id])}}">{{$subject->subject->subjectName}}</a></td>
+            <td>{{$subject->schedule}}</td>
+            <td style="">{{$subject->year}}</td>
+          </tr>
+        @endforeach
+        </tbody>
+      </table>
 
+ </div>
 @endsection

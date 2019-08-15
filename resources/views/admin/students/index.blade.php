@@ -26,10 +26,12 @@
                   <div class="sparkline13-graph">
                      <div class="datatable-dashv1-list custom-datatable-overright">
                         <div id="toolbar">
-                           <select class="form-control dt-tb">
-                              <option value="">Export Basic</option>
-                              <option value="all">Export All</option>
-                              <option value="selected">Export Selected</option>
+                          <p>Sort By:</p>
+                           <select onchange="location = this.value;">
+                              <option>All</option>
+                              @foreach($departments as $department)
+                                 <option value="{{route('admin.student.sort',['department'=>$department->id])}}">{{$department->deptName}}</option>
+                                 @endforeach
                            </select>
                         </div>
                         <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-show-pagination-switch="true" data-show-refresh="true" data-key-events="true" data-show-toggle="true" data-resizable="true" data-cookie="true"
@@ -47,6 +49,7 @@
                               <th data-field="phone" data-editable="false">Contact Number</th>
                               <th data-field="date" data-editable="false">Date Enrolled</th>
                               <th data-field="date">Updated</th>
+                              <th>Edit</th>
                            </tr>
                            </thead>
                            <tbody>
@@ -57,7 +60,7 @@
                               <td></td>
                               <td>{{$student->id}}</td>
                               <td><img height="30" src="{{$student->studentphotos ? $student->studentphotos->file:'User has no Photo'}}"></td>
-                              <td><a href="#">{{$student->studentFirstName ." ". $student->studentMiddleName. " ".$student->studentLastName ." ".$student->studentExtensionName}}</a></td>
+                              <td><a href="{{route('admin.student.record',['student_id'=>$student->id])}}">{{$student->studentFirstName ." ". $student->studentMiddleName. " ".$student->studentLastName ." ".$student->studentExtensionName}}</a></td>
                               <td>{{$student->studentdepartment->deptName}}</td>
                               <td>{{$student->studentAge}}</td>
                               <td>{{$student->studentgender->name}}</td>
@@ -65,6 +68,7 @@
                               <td>{{$student->studentContactNo}}</td>
                              <td>{{$student->created_at->format('M d Y')}}</td>
                               <td>{{$student->updated_at->format('M d Y')}}</td>
+                                       <td><a href="{{route('admin.students.edit',$student->id)}}"><span  class="btn btn-info">Manage</span></a></td>
                                     </tr>
 
                                  @endforeach

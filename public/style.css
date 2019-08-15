@@ -4390,7 +4390,7 @@ div#sparklinehome canvas {
     margin: 0px 0px;
 }
 .mCS-light-1.mCSB_scrollTools .mCSB_dragger .mCSB_dragger_bar{ background-color: #006DF0; }
-.mCS-light-1.mCSB_scrollTools .mCSB_draggerRail{ background-color: #ccc; } 
+.mCS-light-1.mCSB_scrollTools .mCSB_draggerRail{ background-color: #ccc; }
 /*-----------------------
 21. Wizard CSS
 -------------------------*/
@@ -4727,6 +4727,8 @@ div#sparklinehome canvas {
 /*Mine*/
 .breadcome-list{
     margin-top: 70px;
+	border-radius: 15px;
+	background: #F8F8FF;
 }
 
 .breadcome-list-lower{
@@ -4810,8 +4812,6 @@ div#sparklinehome canvas {
 
 }
 
-
-
 .well{
 	width: 100%;
 }
@@ -4832,4 +4832,62 @@ div#sparklinehome canvas {
 }
 .separate{
 	margin-left: 40%;
+}
+
+
+/*Teacher my subjects*/
+
+.my-subjects-teacher-headings
+{
+	text-align: center;
+	text-decoration: underline;
+}
+
+.my-subject-teacher-container
+{
+	padding-bottom: 150px;
+}
+
+.my-subject-teacher-name
+{
+	text-decoration: none;
+	color: #0a6aa1;
+}
+.my-subject-teacher-table{
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 2%;
+	font-size: 1.5em;
+}
+
+body{
+	background: #dfdfff;
+}
+
+
+
+
+
+/*.metismenu a{*/
+	/*background: lightgrey;*/
+	/*color: black;*/
+/*}*/
+/*.metismenu li{*/
+	/*background: lightgrey;*/
+	/*padding: 0;*/
+/*}*/
+/*#menu1{*/
+	/*background: lightgrey;*/
+	/*color: black;*/
+/*}*/
+/*#sidebar{	background: lightgrey;}*/
+
+#page-container {
+	position: relative;
+	min-height: 100vh;
+
+}
+
+#footer{
+	margin-top: 8%;
 }

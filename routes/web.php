@@ -51,6 +51,7 @@ Route::group(['middleware'=>'auth:teacher'],function (){
     Route::get('teacher/subject/submit/{year}', 'TeacherSubjectsController@submitGrades')->name('teacher.subject.submit-grade');
 
 
+
     Route::resource('teacher/students','TeacherStudentsController',['names'=>[
 
         'index'=>'teacher.students.index',
@@ -106,6 +107,9 @@ Route::group(['middleware'=>'auth:teacher'],function (){
         Route::get('admin/teachers/{id}/add-subject', 'AdminTeachersController@addSubject')->name('admin.teachers.add-subject');
         Route::get('admin/subject/{id}/add-student', 'AdminCoursesController@addStudent')->name('admin.subject.add-student');
         Route::patch('admin/subject/{id}/update','AdminCoursesController@updateSubjectStudent')->name('admin.subject.add-student.update');
+        Route::get('admin/student/{student_id}/record/', 'AdminStudentsController@showRecord')->name('admin.student.record');
+        Route::get('admin/student/sort/{department}', 'AdminStudentsController@categories')->name('admin.student.sort');
+
         Route::resource('admin/sections','AdminSectionsController',['names'=>[
 
             'index'=>'admin.sections.index',

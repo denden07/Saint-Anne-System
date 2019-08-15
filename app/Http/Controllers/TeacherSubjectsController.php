@@ -124,7 +124,8 @@ class TeacherSubjectsController extends Controller
         $users =Auth::guard('teacher')->user();
         $user =Auth::guard('teacher')->id();
 //
-        $subjects= SubjectDetails::where('teacher_id',$user)->where('active',1)->get();
+        $subjects= SubjectDetails::orderBy('id','desc')->where('teacher_id',$user)->get();
+
 
 
 
@@ -140,9 +141,15 @@ class TeacherSubjectsController extends Controller
         $users =Auth::guard('teacher')->user();
         $user =Auth::guard('teacher')->id();
         $subj1 =  SubjectDetails::where('id',$subject_id)->first()->subject->id;
-        $grades = Grade::where('subject_id',$subj1)->get();
+        $grades = Grade::where('subject_id',$subj1)->where('status',1)->get();
 
         $subjects = SubjectDetails::where('id',$subject_id)->where('subject_id',$subj1)->first();
+
+        if($grades->isEmpty()){
+
+            return 'No record to show or records already passed to admin';
+        }
+
         return view('teacher.subject.student-records',compact('subjects','users','grades'));
     }
 

@@ -87,15 +87,15 @@
                                     <td>{{$grade->student->studentAge}}</td>
                                     <td>{{$grade->student->studentContactNo}}</td>
                                      <td>{{$grade->year}}</td>
-                                    @if($grade->ave <75)
-                                    <td>Fail</td>
+                                    @if($grade->ave <74)
+                                    <td><p style="background: red;text-align: center;padding: 5px;font-weight: bold;border-radius: 15px">Fail</p></td>
                                         @else
-                                    <td>Pass</td>
+                                    <td><p style="background: green; text-align: center;padding: 5px;font-weight: bold;border-radius: 15px" >Pass</p></td>
                                     @endif
                                     @if($grade->status == 1)
-                                     <td>Active</td>
+                                     <td><p  style="background: green; text-align: center;padding: 5px;font-weight: bold;border-radius: 15px">Active</p></td>
                                      @else
-                                     <td>Not Active</td>
+                                     <td><p style="background: red;text-align: center;padding: 5px;font-weight: bold;border-radius: 15px">Not Active</p></td>
                                      @endif
                                     </tr>
                                     @endforeach
@@ -122,8 +122,7 @@
                                     </tbody>
 
                                 </table>
-                                <a href="{{route('teacher.subject.submit-grade',['year'=>$grade->year])}}">New Class</a>
-
+                                <a class="btn btn-primary" href="{{route('teacher.subject.submit-grade',['year'=>$grade->year])}}" onclick="return confirm('Pass Grades?');">New Class</a>
                             </div>
                         </div>
                     </div>

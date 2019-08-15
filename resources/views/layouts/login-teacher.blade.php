@@ -35,12 +35,11 @@
 
                 <form class="login100-form validate-form" role="form" method="POST" action="{{ route('teacher.login.submit') }}">
                     {{ csrf_field() }}
-					<span class="login100-form-logo">
-                <img  width="500"  class="main-logo" src="{{URL::to('assets/img/logo/home.png')}}" alt="" />
-					</span>
+
+                    <img  width="200"  height="100" class="main-logo" style="margin-left: 25%" src="{{URL::to('assets/img/logo/saa.png')}}" alt="" />
 
                 <span class="login100-form-title p-b-34 p-t-27">
-						Log in
+						Teacher Portal
 					</span>
 
                 <div class="wrap-input100 validate-input class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">

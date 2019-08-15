@@ -69,16 +69,19 @@
 
     <!-- style CSS
 		============================================ -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('style.css')}}">
+
     <!-- responsive CSS
 		============================================ -->
     <link type="text/css" rel="stylesheet" href="{{ asset('assets/css/responsive.css')}}">
     <!-- modernizr JS
 		============================================ -->
     <script src="{{ asset('assets/js/vendor/modernizr-2.8.3.min.js')}}"></script>
+
+    <link type="text/css" rel="stylesheet" href="{{ asset('style.css')}}">
 </head>
 
 <body>
+<div id="page-container">
 <!--[if lt IE 8]>
 <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 <![endif]-->
@@ -858,7 +861,7 @@
             </div>
 
 
-            <div class="footer-copyright-area">
+            <div id="footer" class="footer-copyright-area">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
@@ -870,7 +873,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
         <!-- jquery
             ============================================ -->
         <script src="{{asset('assets/js/vendor/jquery-1.12.4.min.js')}}"></script>
