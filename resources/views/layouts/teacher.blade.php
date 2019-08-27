@@ -125,13 +125,13 @@
                         </ul>
                     </li>
 
-                    <li @yield('is_active_section')>
-                        <a class="has-arrow" href="{{route('admin.sections.index')}}" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Section</span></a>
-                        <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Departments List" href="{{route('admin.sections.index')}}"><span class="mini-sub-pro">View My Section</span></a></li>
+                    {{--<li @yield('is_active_section')>--}}
+                        {{--<a class="has-arrow" href="{{route('admin.sections.index')}}" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Section</span></a>--}}
+                        {{--<ul class="submenu-angle" aria-expanded="false">--}}
+                            {{--<li><a title="Departments List" href="{{route('admin.sections.index')}}"><span class="mini-sub-pro">View My Section</span></a></li>--}}
 
-                        </ul>
-                    </li>
+                        {{--</ul>--}}
+                    {{--</li>--}}
 
 
 
@@ -299,13 +299,10 @@
                                                     <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                                 </a>
                                                 <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                    <li><a href="#"><span class="edu-icon edu-home-admin author-log-ic"></span>My Account</a>
-                                                    </li>
+                                                
                                                     <li><a href="#"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
                                                     </li>
 
-                                                    <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Settings</a>
-                                                    </li>
                                                     <li><a href="{{url('/logout')}}"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
                                                     </li>
                                                 </ul>

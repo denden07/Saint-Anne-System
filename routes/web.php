@@ -14,12 +14,13 @@
 use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
+    return view('layouts.home');
+});
+
+Route::get('/log-in', function (){
     return view('layouts.login');
 });
 
-Route::get('/log-in',function (){
-    return view('layouts.login');
-});
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
@@ -168,6 +169,7 @@ Route::prefix('teacher')->group(function(){
     Route::get('/login','Auth\TeacherLoginController@showLoginForm')->name('teacher.login');
     Route::post('/login','Auth\TeacherLoginController@login')->name('teacher.login.submit');
     Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
+    Route::get('/logout','Auth\TeacherLoginController@logout')->name('teacher.logout');
 
 });
 

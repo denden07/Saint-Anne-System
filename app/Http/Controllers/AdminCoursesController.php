@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use App\Student;
 use App\Subject;
 use App\SubjectDetails;
@@ -37,9 +38,10 @@ class AdminCoursesController extends Controller
 //        $subjects = Subject::pluck('subjectName','id')->all();
         $subjects = Subject::all()->pluck('full_subject','id')->all();
         $teachers = Teacher::all()->pluck('teacher_full','id')->all();
+        $departments = Department::all()->pluck('deptName','id')->all();
 
 
-        return view('admin.courses.create',compact('subjects','teachers'));
+        return view('admin.courses.create',compact('subjects','teachers','departments'));
     }
 
     /**
@@ -59,6 +61,7 @@ class AdminCoursesController extends Controller
      $subject->subject_id = $request->subject_id;
      $subject->schedule = $request->schedule;
      $subject->year = $request->year;
+     $subject->department_id = $request->department_id;
      $subject->active = 1;
     $subject->save();
 
@@ -117,6 +120,7 @@ class AdminCoursesController extends Controller
 
         $subjects = SubjectDetails::find($subject_details);
         $students = Student::all()->pluck('student_full','id')->all();
+        
 
         return view('admin.courses.add-student',compact('subjects','students'));
     }

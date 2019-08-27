@@ -60,8 +60,8 @@
                                                         <div class="row">
                                                             <div class="col-lg-12">
                                                                 <div class="payment-adress">
-                                                                    <div class="form-group">
-                                                                        {!! Form::submit('Create Subject',['class'=>'btn btn-primary waves-effect waves-light']) !!}
+                                                                    <div style="margin-top: 5%" class="form-group">
+                                                                        {!! Form::submit('Add Student',['class'=>'btn btn-primary waves-effect waves-light']) !!}
                                                                     </div>
                                                                 </div>
                                                             </div>

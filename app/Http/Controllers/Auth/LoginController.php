@@ -49,7 +49,7 @@ class LoginController extends Controller
     public function logout(Request $request)
     {
         $this->performLogout($request);
-        return redirect('/log-in');
+        return redirect('/');
     }
 
     public function username()

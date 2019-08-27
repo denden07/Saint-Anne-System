@@ -109,20 +109,18 @@
                         <ul class="submenu-angle" aria-expanded="true">
                             <li><a title="All User" href="{{route('admin.users.index')}}"><span class="mini-sub-pro">All Users</span></a></li>
                             <li><a title="Add User" href="{{route('admin.users.create')}}"><span class="mini-sub-pro">Add Users</span></a></li>
-                            <li><a title="Edit User" href="index-2.html"><span class="mini-sub-pro">Edit Users</span></a></li>
+                            {{--<li><a title="Edit User" href="index-2.html"><span class="mini-sub-pro">Edit Users</span></a></li>--}}
                         </ul>
                     </li>
 
                     <li @yield('is_active_events')>
-                        <a title="Landing Page" href="{{route('admin.events.index')}}" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/event.png')}}" alt=""></span> <span class="mini-click-non">Event</span></a>
+                        <a  href="{{route('admin.events.index')}}" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/event.png')}}" alt=""></span> <span class="mini-click-non">Event</span></a>
                     </li>
                     <li @yield('is_active_teacher')>
                         <a class="has-arrow" href="{{route('admin.teachers.index')}}" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/teacher.png')}}" alt=""> <span class="mini-click-non">Professors</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
                             <li><a title="All Professors" href="{{route('admin.teachers.index')}}"><span class="mini-sub-pro">All Professors</span></a></li>
                             <li><a title="Add Professor" href="{{route('admin.teachers.create')}}"><span class="mini-sub-pro">Add Professor</span></a></li>
-                            <li><a title="Edit Professor" href="edit-professor.html"><span class="mini-sub-pro">Edit Professor</span></a></li>
-                            <li><a title="Professor Profile" href="professor-profile.html"><span class="mini-sub-pro">Professor Profile</span></a></li>
                         </ul>
                     </li>
                     <li @yield('is_active_students')>
@@ -130,7 +128,6 @@
                         <ul class="submenu-angle" aria-expanded="false">
                             <li><a title="All Students" href="{{route('admin.students.index')}}"><span class="mini-sub-pro">All Students</span></a></li>
                             <li><a title="Add Students" href="{{route('admin.students.create')}}"><span class="mini-sub-pro">Enroll Students</span></a></li>
-                            <li><a title="Students Profile" href="professor-profile.html"><span class="mini-sub-pro">Students Profile</span></a></li>
                         </ul>
                     </li>
                     <li @yield('is_active_course')>
@@ -138,27 +135,24 @@
                         <ul class="submenu-angle" aria-expanded="false">
                             <li><a title="All Courses" href="{{route('admin.courses.index')}}"><span class="mini-sub-pro">All Subejcts</span></a></li>
                             <li><a title="Add Courses" href="{{route('admin.courses.create')}}"><span class="mini-sub-pro">Add Subejcts</span></a></li>
-                            <li><a title="Edit Courses" href="edit-course.html"><span class="mini-sub-pro">Edit Subejcts</span></a></li>
-                            <li><a title="Courses Profile" href="course-info.html"><span class="mini-sub-pro">Subejcts Info</span></a></li>
-                            <li><a title="Product Payment" href="course-payment.html"><span class="mini-sub-pro">Subejcts Payment</span></a></li>
                         </ul>
                     </li>
-                    <li @yield('is_active_library')>
-                        <a class="has-arrow" href="{{route('admin.library.index')}}" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Library</span></a>
-                        <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="All Library" href="{{route('admin.library.index')}}"><span class="mini-sub-pro">Library Assets</span></a></li>
-                            <li><a title="Add Library" href="{{route('admin.library.create')}}"><span class="mini-sub-pro">Add Library Asset</span></a></li>
-                            <li><a title="Edit Library" href="edit-library-assets.html"><span class="mini-sub-pro">Edit Library Asset</span></a></li>
-                        </ul>
-                    </li>
-                    <li @yield('is_active_section')>
-                        <a class="has-arrow" href="{{route('admin.sections.index')}}" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Section</span></a>
-                        <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Departments List" href="{{route('admin.sections.index')}}"><span class="mini-sub-pro">Section List</span></a></li>
-                            <li><a title="Add Departments" href="{{route('admin.sections.create')}}"><span class="mini-sub-pro">Add Section</span></a></li>
-                            <li><a title="Edit Departments" href="edit-department.html"><span class="mini-sub-pro">Edit Section</span></a></li>
-                        </ul>
-                    </li>
+                    {{--<li @yield('is_active_library')>--}}
+                        {{--<a class="has-arrow" href="{{route('admin.library.index')}}" aria-expanded="false"><span class="educate-icon educate-library icon-wrap"></span> <span class="mini-click-non">Library</span></a>--}}
+                        {{--<ul class="submenu-angle" aria-expanded="false">--}}
+                            {{--<li><a title="All Library" href="{{route('admin.library.index')}}"><span class="mini-sub-pro">Library Assets</span></a></li>--}}
+                            {{--<li><a title="Add Library" href="{{route('admin.library.create')}}"><span class="mini-sub-pro">Add Library Asset</span></a></li>--}}
+                            {{--<li><a title="Edit Library" href="edit-library-assets.html"><span class="mini-sub-pro">Edit Library Asset</span></a></li>--}}
+                        {{--</ul>--}}
+                    {{--</li>--}}
+                    {{--<li @yield('is_active_section')>--}}
+                        {{--<a class="has-arrow" href="{{route('admin.sections.index')}}" aria-expanded="false"><span class="educate-icon educate-department icon-wrap"></span> <span class="mini-click-non">Section</span></a>--}}
+                        {{--<ul class="submenu-angle" aria-expanded="false">--}}
+                            {{--<li><a title="Departments List" href="{{route('admin.sections.index')}}"><span class="mini-sub-pro">Section List</span></a></li>--}}
+                            {{--<li><a title="Add Departments" href="{{route('admin.sections.create')}}"><span class="mini-sub-pro">Add Section</span></a></li>--}}
+                            {{--<li><a title="Edit Departments" href="edit-department.html"><span class="mini-sub-pro">Edit Section</span></a></li>--}}
+                        {{--</ul>--}}
+                    {{--</li>--}}
 
 
 

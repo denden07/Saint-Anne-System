@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Saint Anne Academy</title>
+    <title>Saint Anne Academy | Teacher</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -33,63 +33,31 @@
     <div class="container-login100" style="background-image: url('{{URL::to('assets/img/logo/background.jpg')}}');">
         <div class="wrap-login100">
 
-                <form autocomplete="off" class="login100-form validate-form" role="form" method="POST" action="{{ route('login') }}">
-                    {{ csrf_field() }}
+            <form class="login100-form validate-form" role="form" method="POST" action="{{ route('teacher.login.submit') }}">
+                {{ csrf_field() }}
 
                 <img  width="200"  height="100" class="main-logo" style="margin-left: 25%" src="{{URL::to('assets/img/logo/saa.png')}}" alt="" />
 
-
                 <span class="login100-form-title p-b-34 p-t-27">
-						Admin Portal
+						Welcome!
 					</span>
-
-                <div class="wrap-input100 validate-input class="form-group{{ $errors->has('username') ? ' has-error' : '' }}">
-
-
-                    <input autocomplete="off" type="text" placeholder="User Name" class="input100" name="username" value="{{ old('username') }}" required autofocus>
-
-                    @if ($errors->has('username'))
-                        <span class="help-block">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                    @endif
-
-                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <a  href="{{url('/log-in')}}"><img style=" -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5))" class="role-icon" height="100px" src="{{URL::to('home/Admin.jpg')}}" ></a>
+                        <a href="{{url('/log-in')}}"><p style="color: white;text-align: center;font-size: 1.5em">Admin</p></a>
+                    </div>
+                    <div class="col">
+                        <a href="{{url('teacher/login')}}"> <img style=" -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5))" class="role-icon" height="100px" src="{{URL::to('home/teacher.png')}}" ></a>
+                        <a href="{{url('teacher/login')}}"><p style="color: white;text-align: center;font-size: 1.5em">Teacher</p></a>
+                    </div>
+                    <div class="col">
+                        <img class="role-icon" style=" -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5))" height="100px" src="{{URL::to('home/student.png')}}" alt="">
+                        <a href="{{url('/log-in')}}"><p style="color: white;text-align: center;font-size: 1.5em">Student</p></a>
+                    </div>
                 </div>
+        </div>
 
-                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-
-                <div class="wrap-input100 validate-input">
-
-
-                    <input  type="password" placeholder="Password" class="input100" name="password" required>
-
-                    @if ($errors->has('password'))
-                        <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                    @endif
-                    <span class="focus-input100" data-placeholder="&#xf191;"></span>
-                </div>
-
-                <div class="contact100-form-checkbox">
-                    <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                    <label class="label-checkbox100" for="ckb1">
-                        Remember me
-                    </label>
-                </div>
-
-                <div class="container-login100-form-btn">
-                    <button type="submit" class="login100-form-btn">
-                        Login
-                    </button>
-                </div>
-
-                <div class="text-center p-t-90">
-                    <a class="txt1" href="#">
-                        Forgot Password?
-                    </a>
-                </div>
             </form>
         </div>
     </div>

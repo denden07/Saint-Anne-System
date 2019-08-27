@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSectionsTable extends Migration
+class AddDepartmentIdToSubjectDetails extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateSectionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sections', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+        Schema::table('subject_details', function (Blueprint $table) {
+            //
+            $table->integer('department_id');
         });
     }
 
@@ -26,6 +26,8 @@ class CreateSectionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sections');
+        Schema::table('subject_details', function (Blueprint $table) {
+            //
+        });
     }
 }

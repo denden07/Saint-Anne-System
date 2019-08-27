@@ -28,4 +28,8 @@ class SubjectDetails extends Model
         return $this->belongsToMany('App\Student','student_subject','subject_id','student_id');
     }
 
+    public function department(){
+        return $this->belongsTo('App\Department','department_id');
+    }
+
 }

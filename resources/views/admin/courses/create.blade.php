@@ -57,6 +57,11 @@
                                                                 {!!  Form::select('teacher_id',$teachers,null,['class'=>'select2-multi form-control','multiple'=>'multiple'])!!}
                                                             </div>
 
+                                                            <div class="form-group">
+                                                                {!! Form::label('department_id',"Department:") !!}
+                                                                {!!  Form::select('department_id',$departments,null,['class'=>'select2-multi form-control','multiple'=>'multiple'])!!}
+                                                            </div>
+
 
                                                             <div class="form-group">
                                                                 {!! Form::label('schedule','Schedule: ') !!}

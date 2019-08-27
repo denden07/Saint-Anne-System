@@ -43,7 +43,7 @@
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                 <div style="margin-top: 5%" class="form-group">
-                    {!! Form::submit('Enroll Student',['class'=>'btn btn-primary waves-effect waves-light']) !!}
+                    {!! Form::submit('Promote Student',['class'=>'btn btn-primary waves-effect waves-light']) !!}
                 </div>
             </div>
         </div>

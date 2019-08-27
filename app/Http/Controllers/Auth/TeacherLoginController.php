@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -12,6 +13,11 @@ class TeacherLoginController extends Controller
     //
     protected $guard = 'teacher';
 
+    use AuthenticatesUsers {
+        logout as performLogout;
+    }
+
+
     public function __construct()
     {
 
@@ -21,6 +27,12 @@ class TeacherLoginController extends Controller
     public function showLoginForm()
     {
 
+        return view('layouts.login-teacher');
+    }
+
+    public function logout(Request $request)
+    {
+        $this->performLogout($request);
         return view('layouts.login-teacher');
     }
 
