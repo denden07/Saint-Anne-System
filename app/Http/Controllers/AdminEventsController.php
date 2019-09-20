@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class AdminEventsController extends Controller
 {
@@ -16,7 +17,8 @@ class AdminEventsController extends Controller
     public function index()
     {
         //
-        return view('admin.event.index');
+        $users_auth = Auth::user();
+        return view('admin.event.index',compact('users_auth'));
     }
 
     /**

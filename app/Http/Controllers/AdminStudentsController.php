@@ -13,6 +13,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class AdminStudentsController extends Controller
 {
@@ -24,20 +25,22 @@ class AdminStudentsController extends Controller
     public function index()
     {
         //
+        $users_auth = Auth::user();
         $students = Student::all();
         $departments = Department::with('students')->orderBy('id', 'asc')->get();
 
 
-        return view('admin.students.index', compact('students', 'departments'));
+        return view('admin.students.index', compact('students', 'departments','users_auth'));
 
     }
 
     public function categories($department)
     {
+        $users_auth = Auth::user();
         $departments = Department::with('students')->orderBy('id', 'asc')->get();
         $students = Student::where('department_id', $department)->get();
 
-        return view('admin.students.index', compact('students', 'departments'));
+        return view('admin.students.index', compact('students', 'departments','users_auth'));
     }
 
 
@@ -49,10 +52,11 @@ class AdminStudentsController extends Controller
     public function create()
     {
         //
+        $users_auth = Auth::user();
         $departments = Department::pluck('deptName', 'id')->all();
         $genders = Gender::pluck('name', 'id')->all();
 
-        return view('admin.students.create', compact('departments', 'genders'));
+        return view('admin.students.create', compact('departments', 'genders','users_auth'));
     }
 
     /**
@@ -117,11 +121,12 @@ class AdminStudentsController extends Controller
     public function edit($id)
     {
         //
+        $users_auth = Auth::user();
         $students = Student::findOrFail($id);
         $departments = Department::pluck('deptName', 'id')->all();
         $genders = Gender::pluck('name', 'id')->all();
 
-        return view('admin.students.edit', compact('students', 'departments', 'genders'));
+        return view('admin.students.edit', compact('students', 'departments', 'genders','users_auth'));
 
     }
 
@@ -184,6 +189,7 @@ class AdminStudentsController extends Controller
 
     public function showRecord($student_id)
     {
+        $users_auth = Auth::user();
         $students = Student::findOrFail($student_id);
         $subjects = Subject::all();
 
@@ -234,7 +240,7 @@ class AdminStudentsController extends Controller
 ////
 
 
-        return view('admin.students.records', compact('students', 'filipino1', 'english1', 'math1', 'science1', 'ap1', 'tle1', 'mapeh1', 'ep1', 'cle1', 'comp1'));
+        return view('admin.students.records', compact('students', 'filipino1', 'english1', 'math1', 'science1', 'ap1', 'tle1', 'mapeh1', 'ep1', 'cle1', 'comp1','users_auth'));
     }
 }
 //},'filipino2','english2','math2','science2','ap2','tle2','ep2','mapeh2','cle2','comp2','filipino3','english3','math3','science3','ap3','tle3','mapeh3','ep3','cle3','comp3','filipino4','english4','math4','science4','ap4','tle4','mapeh4','ep4','cle4','comp4'

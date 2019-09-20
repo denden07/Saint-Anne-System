@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Saint Anne Academy | Teacher</title>
+    <title>Saint Anne Academy | Portal</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -25,6 +25,10 @@
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="{{asset('logins/css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('logins/css/main.css')}}">
+
+    <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{{asset('style.css')}}">
     <!--===============================================================================================-->
 </head>
 <body>
@@ -36,24 +40,24 @@
             <form class="login100-form validate-form" role="form" method="POST" action="{{ route('teacher.login.submit') }}">
                 {{ csrf_field() }}
 
-                <img  width="200"  height="100" class="main-logo" style="margin-left: 25%" src="{{URL::to('assets/img/logo/saa.png')}}" alt="" />
+                <img  width="250"  height="150" class="main-logo" style="margin-left: 19%" src="{{URL::to('assets/img/logo/saa.png')}}" alt="" />
 
                 <span class="login100-form-title p-b-34 p-t-27">
-						Welcome!
+                   " Where Education is Life"
 					</span>
-                <div class="container">
+                <div class="container home-top">
                 <div class="row">
                     <div class="col">
                         <a  href="{{url('/log-in')}}"><img style=" -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5))" class="role-icon" height="100px" src="{{URL::to('home/Admin.jpg')}}" ></a>
-                        <a href="{{url('/log-in')}}"><p style="color: white;text-align: center;font-size: 1.5em">Admin</p></a>
+                        <a href="{{url('/log-in')}}"><p class="home-icon-name" style="color: white;text-align: center;font-size: 1.5em">Admin</p></a>
                     </div>
                     <div class="col">
                         <a href="{{url('teacher/login')}}"> <img style=" -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5))" class="role-icon" height="100px" src="{{URL::to('home/teacher.png')}}" ></a>
-                        <a href="{{url('teacher/login')}}"><p style="color: white;text-align: center;font-size: 1.5em">Teacher</p></a>
+                        <a href="{{url('teacher/login')}}"><p class="home-icon-name" style="color: white;text-align: center;font-size: 1.5em">Teacher</p></a>
                     </div>
                     <div class="col">
-                        <img class="role-icon" style=" -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5))" height="100px" src="{{URL::to('home/student.png')}}" alt="">
-                        <a href="{{url('/log-in')}}"><p style="color: white;text-align: center;font-size: 1.5em">Student</p></a>
+                        <a href="{{url('student/login')}}"><img class="role-icon" style=" -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5))" height="100px" src="{{URL::to('home/student.png')}}" alt=""></a>
+                        <a href="{{url('/log-in')}}"><p class="home-icon-name" style="color: white;text-align: center;font-size: 1.5em">Student</p></a>
                     </div>
                 </div>
         </div>

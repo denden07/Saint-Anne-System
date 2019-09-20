@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Saint Anne Academy</title>
+    <title>Saint Anne Academy | Admin</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -36,7 +36,7 @@
                 <form autocomplete="off" class="login100-form validate-form" role="form" method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
 
-                <img  width="200"  height="100" class="main-logo" style="margin-left: 25%" src="{{URL::to('assets/img/logo/saa.png')}}" alt="" />
+                <img  width="250"  height="150" class="main-logo" style="margin-left: 18%" src="{{URL::to('assets/img/logo/saa.png')}}" alt="" />
 
 
                 <span class="login100-form-title p-b-34 p-t-27">

@@ -25,7 +25,7 @@ class AdminTeachersController extends Controller
     public function index()
     {
         //
-
+        $users_auth = Auth::user();
         $users =Auth::user();
 
         $teachers = Teacher::all();

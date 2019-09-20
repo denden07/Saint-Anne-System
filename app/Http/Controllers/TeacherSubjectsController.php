@@ -162,7 +162,9 @@ class TeacherSubjectsController extends Controller
         $studentGrade = Grade::where('student_id',$student_id)->where('subject_id',$subjects->subject->id)->whereNotNull('ave')->get();
 
         if($studentGrade->isNotEmpty()){
-            return 'grade already submited';
+
+            return redirect()->route('teacher.subject.edit-request',['subject_id'=>$subject_id,'student_id'=> $student_id]);
+
         }
 //
 
@@ -170,6 +172,15 @@ class TeacherSubjectsController extends Controller
 
 
         return view('teacher.grades.create',compact('users','students','subjects'));
+
+    }
+
+    public function editRequest($subject_id, $student_id){
+        $users =Auth::guard('teacher')->user();
+        $students = Student::findOrFail($student_id);
+        $subjects = SubjectDetails::findOrFail($subject_id);
+
+        return view('teacher.subject.request',compact('users','students','subjects'));
 
     }
 
@@ -205,6 +216,8 @@ class TeacherSubjectsController extends Controller
         $grade->year = $year;
         $grade->subject_origin = $subject_origin;
         $grade->status = 1;
+        $grade->request= 2;
+        $grade->department_id = $subjects->department->id;
         $grade->save();
 
 //        Grade::create(['year'=>$year]);
@@ -213,11 +226,34 @@ class TeacherSubjectsController extends Controller
         return redirect()->route('teacher.subject.my-students',$subject_id)->with(['ok'=> 'Grade Submitted Successfully..!']);
     }
 
-    public function submitGrades($year)
+    public function submitGrades($year,$teacher,$subject)
     {
         $user =Auth::guard('teacher')->id();
-        Grade::where('teacher_id',$user)->where('year', $year)->where('status', 1)->update(['status'=> 0]);
+        Grade::where('teacher_id',$user)->where('year', $year)->where('teacher_id',$teacher)->where('subject_id',$subject)->where('status', 1)->update(['status'=> 0]);
         return redirect()->back();
+    }
+
+    public function sendRequest($subject_id, $student_id)
+    {
+        $user =Auth::guard('teacher')->id();
+
+       Grade::where('teacher_id',$user)->where('subject_id',$subject_id)->where('student_id',$student_id)->where('request',2)->update(['request'=> 1]);
+
+//        return redirect()->route('teacher.subject.edit-grades',['subject_id'=>$subject_id,'student_id'=> $student_id]);
+return redirect()->back();
+
+    }
+
+    public function editGrades(Request $request,$subject_id, $student_id)
+    {
+        $user =Auth::guard('teacher')->id();
+        $students= Student::findOrFail($student_id);
+
+       $grades= Grade::where('teacher_id',$user)->where('subject_id',$subject_id)->where('student_id',$student_id)->update(['request'=>1]);
+
+
+        return view('teacher.grades.edit',compact('user','grades','students'));
+
     }
 
 }

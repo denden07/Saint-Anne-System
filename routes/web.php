@@ -21,7 +21,19 @@ Route::get('/log-in', function (){
     return view('layouts.login');
 });
 
+Route::get('student/login',function (){
+   return view('layouts.login-student');
+});
+
 Route::get('/logout', 'Auth\LoginController@logout');
+
+
+Route::get('events','EventsController@index')->name('events.index');
+Route::post('events','EventsController@addEvent')->name('events.add');
+
+Route::get('events','EventsController@index2')->name('teacher.events.index');
+
+
 
 
 //Route::get('/admin', function (){
@@ -46,10 +58,13 @@ Route::group(['middleware'=>'auth:teacher'],function (){
 
     Route::get('teacher/subject/{subject_id}/my-students', 'TeacherSubjectsController@studentList')->name('teacher.subject.my-students');
     Route::get('teacher/subject/{subject_id}/grade/{student_id}', 'TeacherSubjectsController@gradeStudent')->name('teacher.subject.grade-students');
+    Route::get('teacher/edit-request/{subject_id}/{student_id}', 'TeacherSubjectsController@editRequest')->name('teacher.subject.edit-request');
     Route::post('teacher/subject/{subject_id}/grade/{student_id}', 'TeacherSubjectsController@inputHandler')->name('teacher.subject.input-grade');
     Route::get('teacher/subject/{subject_id}/student-record', 'TeacherSubjectsController@studentRecord')->name('teacher.subject.student-record');
     Route::get('teacher/subject/student-record', 'TeacherSubjectsController@recordIndex')->name('teacher.subject.student-record-index');
-    Route::get('teacher/subject/submit/{year}', 'TeacherSubjectsController@submitGrades')->name('teacher.subject.submit-grade');
+    Route::get('teacher/subject/submit/{year}/{teacher}/{subject}', 'TeacherSubjectsController@submitGrades')->name('teacher.subject.submit-grade');
+    Route::get('teacher/subject/edit-grades/{student}/{subject}', 'TeacherSubjectsController@sendRequest')->name('teacher.subject.send-request');
+    Route::get('teacher/subject/edit-grades-form/{student}/{subject}', 'TeacherSubjectsController@editGrades')->name('teacher.subject.edit-grades');
 
 
 
@@ -158,6 +173,29 @@ Route::group(['middleware'=>'auth:teacher'],function (){
 
     });
 
+Route::group(['middleware'=>'auth:student'],function (){
+
+
+
+
+//    Route::resource('student/subjects','StudentSubjectController',['names'=>[
+//
+//        'index'=>'student.subject.index',
+//        'create'=>'student.subject.create',
+//        'store'=>'student.subject.store',
+//        'edit'=>'student.subject.edit'
+//
+//    ]]);
+    Route::get('events','StudentController@index20')->name('students.events.index');
+
+    Route::get('student/my-subject/', 'StudentSubjectController@index')->name('student.my-subject');
+
+    Route::get('student/subject/sort/{department}', 'StudentSubjectController@categories')->name('student.grade.sort');
+
+
+}
+);
+
 
 
 Auth::routes();
@@ -173,6 +211,19 @@ Route::prefix('teacher')->group(function(){
 
 });
 
+Route::prefix('student')->group(function(){
+
+    Route::get('/login','Auth\StudentLoginController@showLoginForm')->name('student.login');
+    Route::post('/login','Auth\StudentLoginController@login')->name('student.login.submit');
+    Route::get('/', 'StudentController@index')->name('student.dashboard');
+    Route::get('/logout','Auth\StudentLoginController@logout')->name('student.logout');
+
+});
+
+
+
+
+
  Route::resource('teacher/grade','AdminEventsController',['names'=>[
 
     'index'=>'admin.events.index',
@@ -182,6 +233,7 @@ Route::prefix('teacher')->group(function(){
 
 
 ]]);
+
 
 
 

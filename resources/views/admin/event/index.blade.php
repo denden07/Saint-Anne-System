@@ -1,12 +1,16 @@
 @extends("layouts.admin")
 
 @section('title')
-    Library
+    Event Calendar
 @endsection
 
 
 @section('is_active_events')
     class="active"
+@endsection
+
+@section('username')
+    {{$users_auth ->firstName." ". $users_auth ->middleName." ".$users_auth ->lastName." ".$users_auth ->nameExtension}}
 @endsection
 
 

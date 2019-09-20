@@ -69,6 +69,7 @@
 
     <!-- style CSS
 		============================================ -->
+    @yield('css')
 
     <!-- responsive CSS
 		============================================ -->
@@ -102,7 +103,7 @@
                 <ul class="metismenu" id="menu1">
 
                     <li @yield('is_active_events')>
-                        <a title="Landing Page" href="{{route('admin.events.index')}}" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/event.png')}}" alt=""></span> <span class="mini-click-non">Event</span></a>
+                        <a title="Landing Page" href="{{route('teacher.events.index')}}" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/event.png')}}" alt=""></span> <span class="mini-click-non">Events</span></a>
                     </li>
                     <li @yield('is_active_teacher')>
                         <a class="has-arrow" href="{{route('admin.teachers.index')}}" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/teacher.png')}}" alt=""> <span class="mini-click-non">My profile</span></a>
@@ -962,6 +963,9 @@
      ============================================ -->
         <script src="{{asset('js/tawk-chat.jss')}}"></script>
 
+    @yield('scripts')
+
 </body>
+
 
 </html>

@@ -15,6 +15,11 @@
 
 @endsection
 
+@section('username')
+    {{$users_auth ->firstName." ". $users_auth ->middleName." ".$users_auth ->lastName." ".$users_auth ->nameExtension}}
+@endsection
+
+
 @section('contents')
 
     <div class="single-pro-review-area mt-t-30 mg-b-15">

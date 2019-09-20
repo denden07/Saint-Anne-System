@@ -122,7 +122,7 @@
                                     </tbody>
 
                                 </table>
-                                <a class="btn btn-primary" href="{{route('teacher.subject.submit-grade',['year'=>$grade->year])}}" onclick="return confirm('Pass Grades?');">New Class</a>
+                                <a class="btn btn-primary" href="{{route('teacher.subject.submit-grade',['year'=>$grade->year,'teacher'=>$grade->teacher->id,'subject'=>$grade->subject->id])}}" onclick="return confirm('Pass Grades?');">New Class</a>
                             </div>
                         </div>
                     </div>

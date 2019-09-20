@@ -67,6 +67,8 @@
     <link rel="stylesheet" href="{{asset('assets/css/data-table/bootstrap-table.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/data-table/bootstrap-editable.css')}}">
 
+
+
     @yield('css')
 
 
@@ -114,7 +116,7 @@
                     </li>
 
                     <li @yield('is_active_events')>
-                        <a  href="{{route('admin.events.index')}}" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/event.png')}}" alt=""></span> <span class="mini-click-non">Event</span></a>
+                        <a  href="{{route('events.index')}}" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/event.png')}}" alt=""></span> <span class="mini-click-non">Event</span></a>
                     </li>
                     <li @yield('is_active_teacher')>
                         <a class="has-arrow" href="{{route('admin.teachers.index')}}" aria-expanded="false"> <img width="20px" src="{{URL::to('assets/img/side-icons/teacher.png')}}" alt=""> <span class="mini-click-non">Professors</span></a>
@@ -973,9 +975,7 @@
 <script src="{{asset('assets/js/sparkline/sparkline-active.js')}}"></script>
 <!-- calendar JS
     ============================================ -->
-<script src="{{asset('assets/js/calendar/moment.min.js')}}"></script>
-<script src="{{asset('assets/js/calendar/fullcalendar.min.js')}}"></script>
-<script src="{{asset('assets/js/calendar/fullcalendar-active.js')}}"></script>
+
 <!-- plugins JS
     ============================================ -->
 <script src="{{asset('assets/js/plugins.js')}}"></script>
@@ -985,7 +985,7 @@
         <!-- tawk chat JS
      ============================================ -->
         <script src="{{asset('js/tawk-chat.jss')}}"></script>
-@yield('scripts')
+
 
     {{--js file for profile    --}}
         <script src="{{asset('profiles/js/jquery-1.11.1.min.js')}}"></script>
@@ -998,7 +998,7 @@
                 });
             });
         </script>
-
+@yield('scripts')
 
 
 </body>

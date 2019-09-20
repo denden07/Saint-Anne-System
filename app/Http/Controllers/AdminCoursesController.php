@@ -10,6 +10,7 @@ use App\Teacher;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class AdminCoursesController extends Controller
 {
@@ -20,11 +21,13 @@ class AdminCoursesController extends Controller
      */
     public function index()
     {
-        //
-      $subjects = SubjectDetails::all();
+
+        $users_auth = Auth::user();
+      $subjects = SubjectDetails::where('active',1)->get();
 
 
-        return view('admin.courses.index',compact('subjects'));
+
+        return view('admin.courses.index',compact('subjects','users_auth'));
     }
 
     /**
@@ -34,6 +37,7 @@ class AdminCoursesController extends Controller
      */
     public function create()
     {
+        $users_auth = Auth::user();
 
 //        $subjects = Subject::pluck('subjectName','id')->all();
         $subjects = Subject::all()->pluck('full_subject','id')->all();
@@ -41,7 +45,7 @@ class AdminCoursesController extends Controller
         $departments = Department::all()->pluck('deptName','id')->all();
 
 
-        return view('admin.courses.create',compact('subjects','teachers','departments'));
+        return view('admin.courses.create',compact('subjects','teachers','departments','users_auth'));
     }
 
     /**
@@ -117,12 +121,12 @@ class AdminCoursesController extends Controller
 
     public function addStudent($subject_details)
     {
-
+        $users_auth = Auth::user();
         $subjects = SubjectDetails::find($subject_details);
         $students = Student::all()->pluck('student_full','id')->all();
         
 
-        return view('admin.courses.add-student',compact('subjects','students'));
+        return view('admin.courses.add-student',compact('subjects','students','users_auth'));
     }
 
 

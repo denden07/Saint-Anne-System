@@ -9,6 +9,10 @@
    class="active"
 @endsection
 
+@section('username')
+   {{$users_auth ->firstName." ". $users_auth ->middleName." ".$users_auth ->lastName." ".$users_auth ->nameExtension}}
+@endsection
+
 
 @section('contents')
 
@@ -28,7 +32,7 @@
                         <div id="toolbar">
                           <p>Sort By:</p>
                            <select onchange="location = this.value;">
-                              <option>All</option>
+                              <option value="{{view('admin.students.index')}}">All</option>
                               @foreach($departments as $department)
                                  <option value="{{route('admin.student.sort',['department'=>$department->id])}}">{{$department->deptName}}</option>
                                  @endforeach
