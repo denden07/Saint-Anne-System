@@ -24,6 +24,6 @@
 
     <p>Submitted Grade can only be edited by sending a request "Edit" to Admin. (Click Yes to Confirm, Click No to return)</p>
 
-    <a class="btn btn-primary" href="{{route('teacher.subject.send-request',['student'=>$students->id,'subject'=>$subjects->id])}}" onclick="return confirm('Confirm?');">Yes</a>
+    <a class="btn btn-primary" href="{{route('teacher.subject.send-request',['subject_id'=>$subjects->id,'student_id'=>$students->id])}}" onclick="return confirm('Confirm?');">Yes</a>
     <button type="button" class="btn btn-danger">No</button>
 @endsection

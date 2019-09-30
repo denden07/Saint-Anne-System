@@ -18,22 +18,22 @@
 
 @section('contents')
 
-    {{--<h3>Student Name: {{$students->studentFirstName}}</h3>--}}
-    {{--<img height="50" src="{{$students->studentphotos->file}}" alt="">--}}
+    <h3>Student Name: {{$students->studentFirstName}}</h3>
+    <img height="50" src="{{$students->studentphotos->file}}" alt="">
 
 
-    {{--<h4>Subject: {{$subjects->subject->subjectName}} </h4>--}}
+    <h4>Subject: {{$subjects->subject->subjectName}} </h4>
 
     {{--{!! Form::open(['method'=>'POST','action'=>'TeacherSubjectsController@inputHandler','files'=>true]) !!}--}}
-    {!! Form::model($grades,['method'=>'PATCH','action'=>['AdminStudentsController@editGrades',$grades->id],'files'=>true]) !!}
+    {!! Form::model($grades,['method'=>'PATCH','action'=>['TeacherSubjectsController@updateGrades',$grades->id],'files'=>true]) !!}
         <div class="row">
             <div class="col-lg-2 col-md-6 col-sm-6 col-xs-12">
 
 
                 <div class="form-group">
                     {!! Form::label('firstGrade','First Grade:') !!}
-                    {{--{!! Form::number('firstGrade',null,['class'=>'form-control']) !!}--}}
-                    <input style="border: black 2px solid" type="number" name="firstGrade" class="form-control">
+                    {!! Form::number('firstGrade',null,['class'=>'form-control']) !!}
+                    {{--<input style="border: black 2px solid" type="number" name="firstGrade" class="form-control">--}}
                 </div>
             </div>
 
