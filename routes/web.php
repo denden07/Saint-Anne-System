@@ -28,10 +28,11 @@ Route::get('student/login',function (){
 Route::get('/logout', 'Auth\LoginController@logout');
 
 
-Route::get('events','EventsController@index')->name('events.index');
-Route::post('events','EventsController@addEvent')->name('events.add');
 
-Route::get('events','EventsController@index2')->name('teacher.events.index');
+
+
+//
+
 
 
 
@@ -55,6 +56,8 @@ Route::get('events','EventsController@index2')->name('teacher.events.index');
 
 //Teacher Group
 Route::group(['middleware'=>'auth:teacher'],function (){
+//
+    Route::get('teacher/events','EventsController@index2')->name('teacher.events.index');
 
     Route::get('teacher/subject/{subject_id}/my-students', 'TeacherSubjectsController@studentList')->name('teacher.subject.my-students');
     Route::get('teacher/subject/{subject_id}/grade/{student_id}', 'TeacherSubjectsController@gradeStudent')->name('teacher.subject.grade-students');
@@ -93,6 +96,12 @@ Route::group(['middleware'=>'auth:teacher'],function (){
 
 
     Route::group(['middleware'=>'auth'],function (){
+
+        Route::get('admin/events/index','EventsController@index')->name('events.index');
+        Route::post('admin/events/index','EventsController@addEvent')->name('events.add');
+
+
+
 
         Route::resource('admin/students','AdminStudentsController',['names'=>[
 
@@ -186,7 +195,7 @@ Route::group(['middleware'=>'auth:student'],function (){
 //        'edit'=>'student.subject.edit'
 //
 //    ]]);
-    Route::get('events','StudentController@index20')->name('students.events.index');
+    Route::get('students/events','StudentController@index20')->name('students.events.index');
 
     Route::get('student/my-subject/', 'StudentSubjectController@index')->name('student.my-subject');
 

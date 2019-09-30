@@ -6,10 +6,10 @@ use App\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
-
+use Validator;
 use  MaddHatter\LaravelFullcalendar\Facades\Calendar;
 
-use Validator;
+
 
 class EventsController extends Controller
 {
@@ -32,23 +32,6 @@ class EventsController extends Controller
         return view('admin.event.create',compact('calendar_details'));
     }
 
-    public function index2(){
-        $events = Event::get();
-        $event_list = [];
-
-        foreach ($events as $key=>$event){
-            $event_list[] = Calendar::event(
-                $event->event_name,
-                true,
-                new \DateTime($event->start_date),
-                new \DateTime($event->end_date.'+1 day')
-            );
-        }
-
-        $calendar_details = Calendar::addEvents($event_list);
-
-        return view('teacher.calendar.events',compact('calendar_details'));
-    }
 
 
     public function addEvent(Request $request)
@@ -76,5 +59,24 @@ class EventsController extends Controller
 
 
     }
+
+    public function index2(){
+        $events = Event::get();
+        $event_list = [];
+
+        foreach ($events as $key=>$event){
+            $event_list[] = Calendar::event(
+                $event->event_name,
+                true,
+                new \DateTime($event->start_date),
+                new \DateTime($event->end_date.'+1 day')
+            );
+        }
+
+        $calendar_details = Calendar::addEvents($event_list);
+
+        return view('teacher.calendar.events',compact('calendar_details'));
+    }
+
 
 }

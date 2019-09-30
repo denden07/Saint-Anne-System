@@ -106,4 +106,22 @@ class StudentSubjectController extends Controller
     {
         //
     }
+
+    public function index20(){
+        $events = Event::get();
+        $event_list = [];
+
+        foreach ($events as $key=>$event){
+            $event_list[] = Calendar::event(
+                $event->event_name,
+                true,
+                new \DateTime($event->start_date),
+                new \DateTime($event->end_date.'+1 day')
+            );
+        }
+
+        $calendar_details = Calendar::addEvents($event_list);
+
+        return view('admin.event.create',compact('calendar_details'));
+    }
 }
